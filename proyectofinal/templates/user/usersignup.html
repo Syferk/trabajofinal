@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+
+        form{
+           margin: 50px; 
+          
+        }
+        #button-registro{
+          background-color: black;
+          text-align: center;
+          text-decoration: none;
+          float: center;
+          margin-right: 40px;
+          border-color: black;
+          font-size: 15px;
+          font-weight: 600;
+          color: #FFF;
+          transition: 0.5s;
+        }
+        #button-registro:hover {
+          background: #22242A;
+        }
+    </style>
+  </head>
+  <body>
+    {% include "quiz/navbar.html" %}
+ 
+
+
+<br><br><br>
+<h3 style="text-align: center;color: #000;">CREA TU USUARIO</h3>
+<form method="POST" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="username">Nombre de usuario</label>
+        {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="Ej: fernapaz" %}
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Contraseña</label>
+        {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="contraseña" %}
+      </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="first_name">Nombre/s</label>
+          {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="Ej: Fernando" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="last_name">Apellido</label>
+          {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Ej: Paz" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="mobile">Teléfono</label>
+          {% render_field studentForm.mobile|attr:'required:true'  class="form-control" placeholder="Ej: +54 9 3731 641678" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="address">Dirección</label>
+          {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Ej: Argentina, Chaco" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="profile_pic">Foto de perfil</label>
+          {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+        </div>
+        
+      </div>
+
+
+    <button type="submit" class="btn btn-primary" id="button-registro">Registrarse</button>
+  </form>
+
+
+<br><br>
+{% include "quiz/footer.html" %}
+  </body>
+</html>
