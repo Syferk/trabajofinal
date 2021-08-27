@@ -1,7 +1,6 @@
 from django.db import models
 
 from user.models import User
-
 class Category(models.Model):
    category_name = models.CharField(max_length=50)
    question_available = models.PositiveIntegerField(default=0)
