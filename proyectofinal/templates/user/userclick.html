@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <style media="screen">
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    .jumbotron h1 {
+      text-align: center;
+    }
+    #button{
+      background: #191919;
+      border:0;
+    }
+  </style>
+  
+</head>
+
+<body>
+
+  {% include "quiz/navbar.html" %}
+  <br><br>
+  <div class="jumbotron" style="margin-bottom:0px;">
+    <h1 class="display-4">Hola,</h1>
+    <p class="lead">Bienvenido a Yunou</p>
+    <hr class="my-4">
+    <p>Accederás a las funciones después de iniciar sesión.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="studentsignup" role="button" id="button">Crea tu cuenta</a>
+      <a class="btn btn-primary btn-lg" href="studentlogin" role="button" id="button">Inicia sesión</a>
+    </p>
+    <br><br><br><br><br><br>
+  </div>
+ 
+  {% include "quiz/footer.html" %}
+</body>
+
+</html>

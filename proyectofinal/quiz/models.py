@@ -19,7 +19,7 @@ class Question(models.Model):
     answer=models.CharField(max_length=200,choices=cat)
 
 class Result(models.Model):
-    student = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     exam = models.ForeignKey(Category,on_delete=models.CASCADE)
     marks = models.PositiveIntegerField()
     date = models.DateTimeField(auto_now=True)
