@@ -1,6 +1,6 @@
 from django.db import models
 
-from user.models import User
+from user.models import Users
 class Category(models.Model):
    category_name = models.CharField(max_length=50)
    question_available = models.PositiveIntegerField(default=0)
@@ -9,7 +9,7 @@ class Category(models.Model):
         return self.category_name
 
 class Question(models.Model):
-    course=models.ForeignKey(Category,on_delete=models.CASCADE)
+    category=models.ForeignKey(Category,on_delete=models.CASCADE)
     question=models.CharField(max_length=600)
     option1=models.CharField(max_length=200)
     option2=models.CharField(max_length=200)
@@ -19,7 +19,7 @@ class Question(models.Model):
     answer=models.CharField(max_length=200,choices=cat)
 
 class Result(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(Users,on_delete=models.CASCADE)
     exam = models.ForeignKey(Category,on_delete=models.CASCADE)
     marks = models.PositiveIntegerField()
     date = models.DateTimeField(auto_now=True)

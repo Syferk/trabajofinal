@@ -1,0 +1,55 @@
+{% extends 'quiz/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        
+        a:link {
+          text-decoration: none;
+        }
+        #button-añadir{
+
+          background-color: black;
+          text-align: center;
+
+          text-decoration: none;
+          float: center;
+          margin: center;
+          border-color: black;
+          font-weight: 600;
+          color: #FFF;
+          transition: 0.5s;
+        }
+        #button-añadir:hover {
+          background: #22242A;
+        }
+    </style>
+</head>
+<meta>
+<h2 style="text-align:center; color:#22242A;">AÑADIR CATEGORÍA</h2>
+<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+    {%csrf_token%}
+    <div class="form-group">
+      <label for="course_name">Nombre de categoría</label>
+      {% render_field courseForm.course_name class="form-control" placeholder="Ej: Historia" %}
+
+      <label for="question_number">Número máximo de preguntas</label>
+      {% render_field courseForm.question_number class="form-control" placeholder="Ej: 30" %}
+
+      <label for="total_marks">Puntaje máximo</label>
+      {% render_field courseForm.total_marks class="form-control" placeholder="Ej: 100" %}
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary" id="button-añadir">Añadir</button>
+  </form>
+<br><br><br>
+{% endblock content %}

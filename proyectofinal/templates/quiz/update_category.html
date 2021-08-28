@@ -1,0 +1,59 @@
+{% extends 'quiz/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+  <style media="screen">
+    input[type=text], select,input[type=number] ,input[type=password], textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: #000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #2f323a;
+  }
+
+
+  </style>
+
+
+</head>
+
+<br><br>
+<h3 style="text-align:center;">ACTUALIZAR CATEGORÍA</h3>
+<div>
+  <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
+      {% csrf_token %}
+        <label for="course_name">Nombre de categoría</label>
+        {% render_field courseForm.course_name class="form-control" placeholder="Ej: Historia" %}
+        
+        <label for="question_number">Número máximo de preguntas</label>
+        {% render_field courseForm.question_number class="form-control" placeholder="Ej: 30" %}
+        
+        <label for="total_marks">Puntaje máximo</label>
+        {% render_field courseForm.total_marks class="form-control" placeholder="Ej: 100" %}
+    
+<br><br>
+    <input type="submit" value="Actualizar">
+  </form>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br>
+{% endblock content %}

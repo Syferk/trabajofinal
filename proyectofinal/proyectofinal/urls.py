@@ -12,4 +12,10 @@ urlpatterns = [
     path('adminclick', views.adminclick_view),
     path('adminlogin', LoginView.as_view(template_name='quiz/adminlogin.html'),name='adminlogin'),
     path('admin-dashboard', views.admin_dashboard_view,name='admin-dashboard'),
+
+    path('admin-category', views.admin_category_view,name='admin-category'),
+    path('admin-add-category', views.admin_add_category_view,name='admin-add-category'),
+    path('admin-view-category', views.admin_view_category_view,name='admin-view-category'),
+    path('update-category/<int:pk>', views.admin_update_category_view, name='update-category'),
+    path('delete-category/<int:pk>', views.delete_category_view,name='delete-category'),
 ]
