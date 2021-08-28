@@ -18,4 +18,11 @@ urlpatterns = [
     path('admin-view-category', views.admin_view_category_view,name='admin-view-category'),
     path('update-category/<int:pk>', views.admin_update_category_view, name='update-category'),
     path('delete-category/<int:pk>', views.delete_category_view,name='delete-category'),
+
+    path('admin-question', views.admin_question_view,name='admin-question'),
+    path('admin-add-question', views.admin_add_question_view,name='admin-add-question'),
+    path('admin-view-question', views.admin_view_question_view,name='admin-view-question'),
+    path('view-question/<int:pk>', views.view_question_view,name='view-question'),
+    path('update-question/<int:pk>', views.update_question_view, name= 'update-question'),
+    path('delete-question/<int:pk>', views.delete_question_view,name='delete-question'),
 ]

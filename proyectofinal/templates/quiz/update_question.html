@@ -1,0 +1,74 @@
+{% extends 'quiz/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+  <style media="screen">
+    input[type=text], select,input[type=number] ,input[type=password], textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: #000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #2f323a;
+  }
+
+
+  </style>
+
+
+</head>
+
+<br><br>
+<h3 style="text-align:center;">ACTUALIZAR PREGUNTA</h3>
+<div>
+  <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
+      {% csrf_token %}
+        <label for="question">Categoría</label>
+        {% render_field questionForm.categoryID class="form-control"  %}
+          <br>
+        <label for="question">Pregunta</label>
+        {% render_field questionForm.question class="form-control" placeholder="Ej: ¿Cuándo se festeja el festival de Sáenz Peña?" %}
+          <br>
+        <label for="question_number">Puntaje de la pregunta</label>
+        {% render_field questionForm.marks class="form-control" placeholder="10" %}
+          <br>
+        <label for="option1">Opción 1</label>
+        {% render_field questionForm.option1 class="form-control" placeholder="1024" %}
+          <br>
+        <label for="option2">Opción 2</label>
+        {% render_field questionForm.option2 class="form-control" placeholder="2019" %}
+          <br>
+        <label for="option3">Opción 3</label>
+        {% render_field questionForm.option3 class="form-control" placeholder="Ayer" %}
+          <br>
+        <label for="option4">Opción 4</label>
+        {% render_field questionForm.option4 class="form-control" placeholder="Hoy" %}
+          <br>
+        <label for="answer">Respuesta correcta</label>
+        {% render_field questionForm.answer class="form-control" %}
+
+<br><br>
+    <input type="submit" value="Actualizar">
+  </form>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br>
+{% endblock content %}

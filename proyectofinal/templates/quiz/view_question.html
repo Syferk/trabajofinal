@@ -34,27 +34,29 @@
 <div class="container">
   <div class="panel panel-primary" id="panel">
     <div class="panel-heading" id="panel2">
-      <h6 class="panel-title">Categorías</h6>
+      <h6 class="panel-title">Preguntas</h6>
     </div>
     <table class="table table-hover" id="dev-table">
       <thead>
         <tr>
 
-          <th>Nombre</th>
-          <th>Número de preguntas</th>
-          <th>Puntaje máximo</th>
-          <th>Actualizar</th>
-          <th>Eliminar</th>
+          <th>Pregunta</th>
+         
+          <th>Puntaje</th>
+          <th>Actualizar pregunta</th>
+          <th>Eliminar pregunta</th>
         </tr>
       </thead>
-      {% for t in categories %}
+      {% for c in questions %}
       <tr>
 
-        <td> {{t.category_name}}</td>
-        <td>{{t.question_number}}</td>
-        <td>{{t.total_marks}}</td>
-        <td><a class="btn btn-primary btn-xs" href="{% url 'update-category' t.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
-        <td><a class="btn btn-danger btn-xs" href="{% url 'delete-category' t.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+        <td> {{c.question}}</td>
+        
+        <td>{{c.marks}}</td>
+
+        <td><a class="btn btn-primary btn-xs" href="{% url 'update-question' c.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'delete-question' c.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+        
       </tr>
       {% endfor %}
     </table>

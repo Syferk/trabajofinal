@@ -1,0 +1,97 @@
+{% extends 'quiz/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+
+  a:link{
+    text-decoration: none;
+  }
+  #button-añadir{
+    position: relative;
+    background-color: #6d047bf5;
+    text-align: center;
+    display: inline;
+    text-decoration: none;
+    float: center;
+    margin: center;
+    border-color: rgb(0, 0, 0);
+    font-weight: 600;
+    color: #FFF;
+    transition: 0.5s;
+    left: 350px;
+    margin-left: 15px;
+  }
+  #button-añadir:hover {
+    background: linear-gradient(#6d047bf5, #ffffff);
+  }
+  .home-section{
+    background: #00F260;
+    background: linear-gradient(#6d047bf5, #ffffff);
+  }
+  .box {
+    display:block;
+    padding: 40px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #270341;
+    opacity: 70%;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: black 5px 5px;
+    color: white;
+} 
+h2{
+  text-align: center;
+}
+  </style>
+</head>
+<body>
+
+<div class="box">
+<h2>AÑADIR PREGUNTA</h2>
+<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+    {%csrf_token%}
+    <div class="form-group">
+        <label for="question">Categoría</label>
+      {% render_field questionForm.categoryID|attr:'required:true' class="form-control" %}
+        <br>
+
+      <label for="question">Pregunta</label>
+      {% render_field questionForm.question|attr:'required:true' class="form-control" placeholder="Ej: ¿Cuándo se festeja el festival de Sáenz Peña?" %}
+        <br>
+      <label for="question_number">Puntaje de la pregunta</label>
+      {% render_field questionForm.marks|attr:'required:true' class="form-control" placeholder="10" %}
+        <br>
+      <label for="option1">Opción 1</label>
+      {% render_field questionForm.option1|attr:'required:true' class="form-control" placeholder="1024" %}
+        <br>
+      <label for="option2">Opción 2</label>
+      {% render_field questionForm.option2|attr:'required:true' class="form-control" placeholder="2019" %}
+        <br>
+      <label for="option3">Opción 3</label>
+      {% render_field questionForm.option3|attr:'required:true' class="form-control" placeholder="Ayer" %}
+        <br>
+      <label for="option4">Opción 4</label>
+      {% render_field questionForm.option4|attr:'required:true' class="form-control" placeholder="Hoy" %}
+        <br>
+      <label for="answer">Respuesta correcta</label>
+      {% render_field questionForm.answer|attr:'required:true' class="form-control" %}
+    </div>
+    
+<br>
+    <button type="submit" class="btn center-block" id="button-añadir">Añadir</button> 
+    <!-- <a href="{% url 'admin-add-question' %}" type="hidden"><input type="submit" class="btn center-block" id="button-añadir">Seguir añadiendo</button></a> -->
+</form> </div>
+<br><br><br>
+{% endblock content %}
+</body>

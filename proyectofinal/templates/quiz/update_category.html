@@ -39,15 +39,12 @@
 <div>
   <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
       {% csrf_token %}
-        <label for="course_name">Nombre de categoría</label>
-        {% render_field courseForm.course_name class="form-control" placeholder="Ej: Historia" %}
+        <label for="category_name">Nombre de categoría</label>
+        {% render_field categoryForm.category_name class="form-control" placeholder="Ej: Historia" %}
         
         <label for="question_number">Número máximo de preguntas</label>
-        {% render_field courseForm.question_number class="form-control" placeholder="Ej: 30" %}
-        
-        <label for="total_marks">Puntaje máximo</label>
-        {% render_field courseForm.total_marks class="form-control" placeholder="Ej: 100" %}
-    
+        {% render_field categoryForm.question_number class="form-control" placeholder="Ej: 30" %}
+            
 <br><br>
     <input type="submit" value="Actualizar">
   </form>
