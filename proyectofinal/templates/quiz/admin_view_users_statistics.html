@@ -1,0 +1,60 @@
+{% extends 'quiz/adminbase.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+      
+    }
+
+    .row {
+      margin: 100px;
+    }
+    #panel2{
+      background: #2f323a;
+    }
+    #panel{
+      border-color: #2f323a;
+    }
+    th, tr {
+      text-align: center;
+    }
+  </style>
+</head>
+<br><br>
+<div class="container">
+  <div class="panel panel-primary" id="panel">
+    <div class="panel-heading" id="panel2">
+      <h6 class="panel-title">Usuarios</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+            <th>Partidas jugadas</th>
+            <th>Preguntas respondidas</th>
+            <th>Correctas</th>
+            <th>Puntaje total</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>{{total_partidas}}</td>
+        <td>{{preguntas_totales}}</td>
+        <td>{{correctas}}</td>
+        <td>{{marks}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}

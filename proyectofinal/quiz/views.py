@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from user import models as UMODEL
 from . import models, forms
+from user import forms as SFORM
+from django.contrib.auth.models import User
 
 def home_view(request):
     if request.user.is_authenticated:
@@ -57,6 +59,60 @@ def admin_view_marks_view(request,pk):
     response =  render(request,'quiz/admin_view_marks.html',{'categories':categories})
     response.set_cookie('user_id',str(pk))
     return response
+
+def admin_view_statistics(request, pk):
+    user = UMODEL.User.objects.get(id = pk)
+    results= models.Result.objects.all().filter(user=user)
+    correctas = preguntas_totales = total_partidas = marks = 0
+    for r in results:
+        correctas = correctas + r.correct
+        total_partidas += 1
+        marks = marks + r.marks
+        preguntas_totales = preguntas_totales + r.total_questions 
+    contexto = {
+        "results":results,
+        "correctas":correctas,
+        "total_partidas": total_partidas,
+        "marks": marks,
+        "preguntas_totales": preguntas_totales
+    }
+    return render(request, 'quiz/admin_view_users_statistics.html', contexto)
+
+@login_required(login_url='adminlogin')
+def admin_check_marks_view(request,pk):
+    category = models.Category.objects.get(id=pk)
+    user_id = request.COOKIES.get('user_id')
+    user= UMODEL.User.objects.get(id=user_id)
+
+    results= models.Result.objects.all().filter(exam=category).filter(user=user)
+    return render(request,'quiz/admin_check_marks.html',{'results':results})
+
+#Lógica para actualizar y eliminar usuarios
+@login_required(login_url='adminlogin')
+def update_user_view(request,pk):
+    student=UMODEL.User.objects.get(id=pk)
+    user=UMODEL.User.objects.get(id=student.user_id)
+    userForm=SFORM.StudentUserForm(instance=user)
+    studentForm=SFORM.UserForm(request.FILES,instance=student)
+    mydict={'userForm':userForm,'studentForm':studentForm}
+    if request.method=='POST':
+        userForm=SFORM.StudentUserForm(request.POST,instance=user)
+        studentForm=SFORM.UserForm(request.POST,request.FILES,instance=student)
+        if userForm.is_valid() and studentForm.is_valid():
+            user=userForm.save()
+            user.set_password(user.password)
+            user.save()
+            studentForm.save()
+            return redirect('admin-view-user')
+    return render(request,'quiz/update_user.html',context=mydict)
+
+@login_required(login_url='adminlogin')
+def delete_user_view(request,pk):
+    student=UMODEL.User.objects.get(id=pk)
+    user=User.objects.get(id=student.user_id)
+    user.delete()
+    student.delete()
+    return HttpResponseRedirect('/admin-view-user')        
 
 # Lógica para cargar, actualizar y eliminar categorías
 @login_required(login_url='adminlogin')
