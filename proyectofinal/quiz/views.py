@@ -9,6 +9,15 @@ def home_view(request):
         return HttpResponseRedirect('afterlogin')  
     return render(request,'quiz/index.html')
 
+def is_user(user):
+    return user.groups.filter(name='USER').exists()
+
+def afterlogin_view(request):
+    if is_user(request.user):
+        return redirect('user/user-dashboard')
+    else:
+        return redirect('admin-dashboard')
+
 def adminclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
@@ -23,6 +32,31 @@ def admin_dashboard_view(request):
     }
     return render(request,'quiz/admin_dashboard.html',context=dict)
 
+#Lógica para cargar, actualizar y eliminar usuarios
+@login_required(login_url='adminlogin')
+def admin_user_view(request):
+    dict={
+    'total_user':UMODEL.User.objects.all().count(),
+    }
+    return render(request,'quiz/admin_user.html',context=dict)
+
+@login_required(login_url='adminlogin')
+def admin_view_user_view(request):
+    users= UMODEL.User.objects.all()
+    return render(request,'quiz/admin_view_user.html',{'users':users})
+
+#Vistas para los resultados
+@login_required(login_url='adminlogin')
+def admin_view_user_marks_view(request):
+    users= UMODEL.User.objects.all()
+    return render(request,'quiz/admin_view_user_marks.html',{'users':users})
+
+@login_required(login_url='adminlogin')
+def admin_view_marks_view(request,pk):
+    categories = models.Category.objects.all()
+    response =  render(request,'quiz/admin_view_marks.html',{'categories':categories})
+    response.set_cookie('user_id',str(pk))
+    return response
 
 # Lógica para cargar, actualizar y eliminar categorías
 @login_required(login_url='adminlogin')

@@ -14,6 +14,7 @@
 
     h6 {
       text-align: center;
+      
     }
 
     .row {
@@ -34,27 +35,36 @@
 <div class="container">
   <div class="panel panel-primary" id="panel">
     <div class="panel-heading" id="panel2">
-      <h6 class="panel-title">Preguntas</h6>
+      <h6 class="panel-title">Usuarios</h6>
     </div>
     <table class="table table-hover" id="dev-table">
       <thead>
         <tr>
+          <th>Nombre de usuario</th>
 
-          <th>Pregunta</th>
+          <th>Nombre y apellido</th>
 
-          <th>Actualizar pregunta</th>
-          <th>Eliminar pregunta</th>
-
+          <th>Foto de perfil</th>
+          <th>Teléfono</th>
+          <th>Dirección</th>
+          <th>Fecha de creación de cuenta</th>
+          <th>Último acceso</th>
+          <th>Actualizar</th>
+          <th>Eliminar</th>
         </tr>
       </thead>
-      {% for c in questions %}
+      {% for t in users %}
       <tr>
 
-        <td> {{c.question}}</td>
-
-        <td><a class="btn btn-primary btn-xs" href="{% url 'update-question' c.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
-        <td><a class="btn btn-danger btn-xs" href="{% url 'delete-question' c.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
-        
+        <td> {{t.get_username}}</td>
+        <td> {{t.get_name}}</td>
+        <td> <img src="{% static t.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
+        <td>{{t.mobile}}</td>
+        <td>{{t.address}}</td>
+        <td>{{t.get_date_joined}}</td>
+        <td>{{t.get_last_login}}</td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'update-user' t.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'delete-user' t.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
       </tr>
       {% endfor %}
     </table>

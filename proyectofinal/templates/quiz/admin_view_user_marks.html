@@ -34,27 +34,32 @@
 <div class="container">
   <div class="panel panel-primary" id="panel">
     <div class="panel-heading" id="panel2">
-      <h6 class="panel-title">Preguntas</h6>
+      <h6 class="panel-title">Usuarios</h6>
     </div>
     <table class="table table-hover" id="dev-table">
       <thead>
         <tr>
 
-          <th>Pregunta</th>
+          <th>Nombre de usuario</th>
 
-          <th>Actualizar pregunta</th>
-          <th>Eliminar pregunta</th>
-
+          <th>Nombre y apellido</th>
+          <th>Foto de perfil</th>
+          <th>Ver resultados</th>
+          
+          <th>Ver estadísticas generales</th>
         </tr>
       </thead>
-      {% for c in questions %}
+      {% for t in users %}
       <tr>
 
-        <td> {{c.question}}</td>
+        <td> {{t.get_username}}</td>
 
-        <td><a class="btn btn-primary btn-xs" href="{% url 'update-question' c.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
-        <td><a class="btn btn-danger btn-xs" href="{% url 'delete-question' c.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+        <td> {{t.get_name}}</td>
+        <td> <img src="{% static t.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
         
+        <td><a class="btn btn-primary btn-xs" href="{% url 'admin-view-marks' t.id  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+        
+        <td><a class="btn btn-primary btn-xs" href="{% url 'admin-view-statistics' t.id  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
       </tr>
       {% endfor %}
     </table>

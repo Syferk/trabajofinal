@@ -13,7 +13,7 @@ class QuestionForm(forms.ModelForm):
     categoryID=forms.ModelChoiceField(queryset=models.Category.objects.all(),empty_label="Nombre de categoría", to_field_name="id")
     class Meta:
         model=models.Question
-        fields=['marks','question','option1','option2','option3','option4','answer']
+        fields=['question','option1','option2','option3','option4','answer']
         widgets = {
             'question': forms.Textarea(attrs={'rows': 3, 'cols': 50})
         }

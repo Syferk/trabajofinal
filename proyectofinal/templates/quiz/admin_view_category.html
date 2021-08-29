@@ -42,7 +42,6 @@
 
           <th>Nombre</th>
           <th>Número de preguntas</th>
-          <th>Puntaje máximo</th>
           <th>Actualizar</th>
           <th>Eliminar</th>
         </tr>
@@ -52,7 +51,6 @@
 
         <td> {{t.category_name}}</td>
         <td>{{t.question_number}}</td>
-        <td>{{t.total_marks}}</td>
         <td><a class="btn btn-primary btn-xs" href="{% url 'update-category' t.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
         <td><a class="btn btn-danger btn-xs" href="{% url 'delete-category' t.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
       </tr>

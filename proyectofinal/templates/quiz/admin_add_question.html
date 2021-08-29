@@ -69,9 +69,6 @@ h2{
       <label for="question">Pregunta</label>
       {% render_field questionForm.question|attr:'required:true' class="form-control" placeholder="Ej: ¿Cuándo se festeja el festival de Sáenz Peña?" %}
         <br>
-      <label for="question_number">Puntaje de la pregunta</label>
-      {% render_field questionForm.marks|attr:'required:true' class="form-control" placeholder="10" %}
-        <br>
       <label for="option1">Opción 1</label>
       {% render_field questionForm.option1|attr:'required:true' class="form-control" placeholder="1024" %}
         <br>
