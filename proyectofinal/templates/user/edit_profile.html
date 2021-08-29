@@ -1,0 +1,112 @@
+{% extends 'student/studentbase.html' %}
+{% load widget_tweaks %}
+{% block title %}
+    <title>Editar perfil</title>
+{% endblock %}
+{% block content %}
+{%load static%}
+    <head>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spartan&display=swap" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+        <style>
+          h1{
+  text-align: center;
+background-color: white;
+   -webkit-background-clip: text;
+     color:rgb(46, 0, 33);
+     font-family: 'Spartan', sans-serif;
+   font-size: 50px;
+          } 
+.home-section{
+background: #00F260;
+background: linear-gradient(#6d047bf5, #ffffff);
+  }
+ 
+  .card-panel{
+  color: rgb(46, 0, 33);
+ } 
+  .titulosf{
+  margin-left: 7px;
+
+}
+#id_first_name, #id_last_name, #id_mobile, #id_address, #id_username, #id_password, #id_profile_pic{
+  background: rgb(255, 255, 255);
+  opacity: 100%;
+  border-radius: 20px;
+  border-color: rgb(255, 255, 255);
+  border-width: 3px;
+  box-shadow: 5px 5px 5px 2px rgb(115, 0, 138);
+}
+#btn-act{
+  
+  color: white ;
+  background-color: #6d047bf5;
+  border-radius: 20px;
+  border-color: rgb(255, 255, 255);
+  border-width: 1px;
+}
+#btnact{
+  width: 440px;
+  text-align: center ;
+}
+.box {
+display:block;
+padding: 20px;
+margin-left: auto;
+margin-right:auto;
+width: 70%;
+background: #ffffff;
+opacity: 70%;
+border-radius: 35px;
+}
+
+
+    </style>
+    </head>
+    <body>
+      <div class="box">
+    <h1>Editar perfil</h1>
+    <br>
+    <div class="card-panel">
+        <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="form-group col-md-6">
+              <label for="first_name" class="titulosf">Nombre/s</label>
+              {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+              </div>
+              <div class="form-group col-md-6">
+              <label for="last_name" class="titulosf">Apellido</label>
+              {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+            </div>
+            <div class="form-group col-md-6">
+                <label for="mobile" class="titulosf">Teléfono</label>
+                {% render_field studentForm.mobile class="form-control" placeholder="Mobile" %}
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="address" class="titulosf">Dirección</label>
+                {% render_field studentForm.address class="form-control" placeholder="Address" %}
+              </div>
+              <div class="form-group col-md-6">
+              <label for="username" class="titulosf">Nombre de usuario</label>
+              {% render_field userForm.username class="form-control" placeholder="Username" %}
+            </div>
+            <div class="form-group col-md-6">
+                <label for="password" class="titulosf">Contraseña</label>
+              {% render_field userForm.password class="form-control" placeholder="Password" %}
+            </div> </div>
+              <label for="profile_pic" id="fotop" class="titulosf">Foto de perfil</label>
+                {% render_field studentForm.profile_pic class="form-control" placeholder="Foto de perfil" %}
+      <br><br>
+      <div id="btnact">
+          <input id="btn-act" class="btn btn-primary" type="submit" value="Actualizar"></div>
+        </form>
+    </div>
+  </div>
+    </body>
+{% endblock %}
