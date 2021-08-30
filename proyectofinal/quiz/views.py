@@ -79,6 +79,25 @@ def admin_view_statistics(request, pk):
     return render(request, 'quiz/admin_view_users_statistics.html', contexto)
 
 @login_required(login_url='adminlogin')
+def ranking(request):
+    users = UMODEL.Users.objects.all()
+    lista = []
+    for user in users:
+        marks = 0
+        results = models.Result.objects.all().filter(user = user)
+        for result in results:
+            marks += result.marks
+        dict = {
+            'user': user.get_username,
+            'marks': marks,
+        }
+        lista.append(dict)
+    contexto = {
+        "lista": sorted(lista, key = lambda i: i['marks'],reverse=True),
+    }
+    return render(request, "quiz/ranking.html", contexto)
+
+@login_required(login_url='adminlogin')
 def admin_check_marks_view(request,pk):
     category = models.Category.objects.get(id=pk)
     user_id = request.COOKIES.get('user_id')
@@ -238,3 +257,6 @@ def delete_question_view(request,pk):
     question.delete()
     category.save()
     return HttpResponseRedirect('/admin-view-question')
+
+
+

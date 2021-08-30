@@ -7,10 +7,6 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-  {% block title %}
-    <title>Elegir categoría</title>
-  {% endblock %}
-
   <style media="screen">
     a:link {
       text-decoration: none;
@@ -27,41 +23,41 @@
       background: #6d047bf5;
     }
     #panel{
-      border-color: #fffffff5;
-      color: white; 
+      border-color: #6d047bf5;
     }
     .home-section{
-background: #00F260;
-background: linear-gradient(#6d047bf5, #ffffff);
+      background: #00F260;
+    background: linear-gradient(#6d047bf5, #ffffff);
   }
   </style>
 </head>
-
 <br><br>
 <div class="container">
-  <div class="panel" id="panel">
+  <div class="panel panel-primary" id="panel">
     <div class="panel-heading" id="panel2">
-      <h6 class="panel-title">Categorías</h6>
+      <h6 class="panel-title">Partidas jugadas</h6>
     </div>
     <table class="table table-hover" id="dev-table">
       <thead>
         <tr>
 
-          <th>Nombre de categoría</th>
+          <th>Categoría</th>
           
-          <th>Jugar</th>
+          <th>Ver mis puntuaciones</th>
+          
         </tr>
       </thead>
-      {% for c in categories %}
+      {% for t in categories %}
       <tr>
 
-        <td>{{c.category_name}}</td>
+        <td> {{t.category_name}}</td>
         
-        <td><a class="btn btn-danger btn-xs" href="{% url 'take-exam' c.id  %}"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'check-marks' t.id  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
       </tr>
       {% endfor %}
     </table>
   </div>
 </div>
 
+<br><br><br><br><br><br>
 {% endblock content %}

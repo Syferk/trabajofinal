@@ -1,0 +1,82 @@
+{% extends 'user/userbase.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    {% block title %}
+        <title>Categoria</title>
+    {% endblock %}
+
+  <style>
+      #button-comenzar{
+        background-color: black;
+        text-align: center;
+        text-decoration: none;
+        float: center;
+        margin-right: 40px;
+        border-color: black;
+        font-size: 15px;
+        font-weight: 600;
+        color: #FFF;
+        transition: 0.5s;  
+        position: relative !important;
+        left: 450px;
+      }
+      #button-comenzar:hover {
+          background: #22242A;
+        }
+  </style>
+
+</head>
+<br><br>
+<div class="container my-4">
+    <div class="jumbotron">
+	      <h3 class="text-info text-center" style="color: #2f323a !important">Tenga en cuenta lo siguiente:</h3>
+
+        <div class="row">
+
+            <div class="card border-info mx-4 my-4" style="border-color: #000 !important;">
+                <div class="card-body text-info">
+                    <div class="card-footer">
+                        <h4 class="card-title" style="color: #2f323a" >Detalles del cuestionario :</h4>
+
+                    </div>
+                    <p class="card-text">
+                        </p><ul style="list-style:decimal; color: #2f323a";>
+                            <li>Categoría : {{category.category_name}}</li>
+                            <li>Total de preguntas : {{total_questions}}</li>
+                            <li>Resultado máximo : {{total_marks}}</li>
+                        </ul>
+                    <p></p>
+
+                    <h4 class="card-title" style="color: #2f323a">Reglas :</h4>
+                    <p class="card-text">
+                        </p><ul style="list-style:decimal; color: #2f323a";>
+                            <li>Todas las preguntas son múltiple choice</li>
+                            <li><span class="text-danger">Solo una respuesta es correcta.</span></li>
+                            <li>Cada pregunta tiene diferentes puntajes 
+                            </li>
+                
+                            <li>Trate de responder lo más rápido que pueda.</li>
+                            <li>Si presiona actualizar o regresa a la página anterior, habrá una nueva pregunta para usted y la pregunta en la que estaba se contabilizará como intento.</li>
+                            <li>Las preguntas se muestran aleatoriamente para cada usuario.</li>
+                            <li>Se le informará su puntaje obtenido inmediatamente cuando envíe todo el cuestionario.</li>
+                        </ul>
+                    <p></p>
+
+                    
+                    <a href="{% url 'start-exam' category.id  %}" class="btn btn-info" id="button-comenzar">Comenzar</a>
+                </div>  
+                <div class="card-footer">Mucha suerte, {{request.user.first_name}}</div>  
+            </div>  
+        </div>  
+
+    </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}

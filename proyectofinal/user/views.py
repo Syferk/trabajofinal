@@ -82,6 +82,36 @@ def user_exam_view(request):
     }
     return render(request,'user/user_exam.html',contexto)
 
+@login_required(login_url='userlogin')
+@user_passes_test(is_user)
+def take_exam_view(request,pk):
+    category=QMODEL.Category.objects.get(id=pk)
+    total_questions= category.question_number
+    total_marks=100
+    
+    return render(request,'user/take_exam.html',{'category':category,'total_questions':total_questions,'total_marks':total_marks})
+
+@login_required(login_url='userlogin')
+@user_passes_test(is_user)
+def start_exam_view(request,pk):
+    category=QMODEL.Category.objects.get(id=pk)
+    questions=QMODEL.Question.objects.all().filter(category=category).order_by("?")[:category.question_number] # , pk__in= lista
+    #question = questions.first()
+    #list_exclude = []
+    if request.method=='POST':
+        # actual_question = request.POST['question_id']
+        # list_exclude.append(actual_question)  
+        # questions = QMODEL.Question.objects.all().exclude(course = course, pk__in= list_exclude)
+        # if questions.count > 0:
+        #     question = questions.first()
+        # else:
+        #     return redirect('check-marks')
+        pass
+    response= render(request,'user/start_exam.html',{'category':category,'questions':questions})
+    response.set_cookie('category_id',category.id)
+    return response
+
+
 # Obtener puntajes y posicionamiento de ranking 
 @login_required(login_url='userlogin')
 @user_passes_test(is_user)
@@ -138,6 +168,27 @@ def user_marks_view(request):
         'categories':categories
     }
     return render(request,'user/user_marks.html',contexto)
+
+@login_required(login_url='userlogin')
+@user_passes_test(is_user)
+def show_statistics(request):
+    user = UMODEL.Users.objects.get(user_id=request.user.id)
+    results= QMODEL.Result.objects.all().filter(user=user)
+    correctas = preguntas_totales = total_partidas = marks = 0
+    for r in results:
+        correctas += r.correct
+        total_partidas += 1
+        marks += r.marks
+        preguntas_totales += r.total_questions 
+    contexto = {
+        "results":results,
+        "correctas":correctas,
+        "total_partidas": total_partidas,
+        "marks": marks,
+        "preguntas_totales": preguntas_totales
+    }
+    return render(request, 'user/statistics.html', contexto)
+
 
 @login_required(login_url='userlogin')
 @user_passes_test(is_user)

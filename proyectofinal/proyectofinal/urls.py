@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin-view-user-marks', views.admin_view_user_marks_view,name='admin-view-user-marks'),
     path('admin-view-marks/<int:pk>', views.admin_view_marks_view,name='admin-view-marks'),
     path('admin-view-statistics/<int:pk>', views.admin_view_statistics,name='admin-view-statistics'),
+    path('admin-view-ranking', views.ranking,name='admin-view-ranking'),
     path('admin-check-marks/<int:pk>', views.admin_check_marks_view,name='admin-check-marks'),
     path('update-user/<int:pk>', views.update_user_view,name='update-user'),
     path('delete-user/<int:pk>', views.delete_user_view,name='delete-user'),

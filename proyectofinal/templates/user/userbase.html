@@ -4,7 +4,9 @@
 
 <head>
   <meta charset="utf-8">
- 
+  {% block title %}
+    <title>Yunou</title>
+  {% endblock %}
 
   <style media="screen">
     /* Google Fonts Import Link */
@@ -279,7 +281,7 @@
 
   <div class="sidebar close">
     <div class="logo-details">
-      <img src="{% static "image/logo.png" %}" alt="profileImg">
+      <img src="{% static 'image/logo.png' %}" alt="profileImg">
       <span class="logo_name">Yunou</span>
     </div>
     <ul class="nav-links">
@@ -344,7 +346,7 @@
       <li>
     <div class="profile-details">
       <div class="profile-content">
-        <img src="{% static "image/admin.png" %}" alt="profileImg">
+        <img src="{% static 'image/admin.png' %}" alt="profileImg">
       </div>
       <div class="name-job">
         <div class="profile_name">{{request.user.first_name}}</div>
