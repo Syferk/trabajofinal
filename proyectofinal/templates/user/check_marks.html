@@ -1,0 +1,89 @@
+{% extends 'user/userbase.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+    #panel2{
+      background: #2f323a;
+    }
+    #panel{
+      border-color: #2f323a;
+    }
+    th, tr {
+      text-align: center;
+    }
+  </style>
+</head>
+<br><br>
+<div class="container">
+  <div class="panel panel-primary" id="panel">
+    <div class="panel-heading" id="panel2">
+      <h6 class="panel-title">Partidas jugadas </h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+
+          <th>Categoría</th>
+          
+          <th>Puntaje total</th>
+          <th>Correctas</th>
+          <th>Intento</th>
+          
+          <th>Día que lo realicé</th>
+          <th>Compartir mis resultados</th>
+        </tr>
+      </thead>
+      {% for t in results %}
+      <tr>
+
+        <td> {{t.exam}}</td>
+        <td> {{t.marks}}</td>
+        <td> {{t.correct}}</td>
+        <td>Intento: {{ forloop.counter }}</td>
+        <td> {{t.date}}</td>
+        <td> 
+          
+         
+          <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+            <div class="fb-share-button" 
+            data-href="https://www.yunou.html"
+            data-layout="button">
+          </div>
+             
+        
+        </td>
+        
+        
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}

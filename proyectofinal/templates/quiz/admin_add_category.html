@@ -38,7 +38,7 @@
 <form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
     {%csrf_token%}
     <div class="form-group">
-      <label for="course_name">Nombre de categoría</label>
+      <label for="category_name">Nombre de categoría</label>
       {% render_field categoryForm.category_name class="form-control" placeholder="Ej: Historia" %}
 
       <label for="question_number">Número de preguntas a responder</label>

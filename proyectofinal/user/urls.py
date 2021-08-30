@@ -9,5 +9,13 @@ urlpatterns = [
 
     path('user-dashboard', views.user_dashboard_view,name='user-dashboard'),
     path('edit-profile', views.edit_profile, name = 'edit-profile'),
-    path('user-exam', views.user_exam_view,name='user-exam'),  
+    path('user-exam', views.user_exam_view,name='user-exam'),
+
+
+
+    path('calculate-marks', views.calculate_marks_view,name='calculate-marks'),
+    path('view-result', views.view_result_view,name='view-result'),
+    path('check-marks/<int:pk>', views.check_marks_view,name='check-marks'),
+    path('user-marks', views.user_marks_view,name='user-marks'),
+    path('user-ranking', views.ranking, name='ranking'),
 ]

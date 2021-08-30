@@ -38,19 +38,19 @@ def admin_dashboard_view(request):
 @login_required(login_url='adminlogin')
 def admin_user_view(request):
     dict={
-    'total_user':UMODEL.User.objects.all().count(),
+    'total_user':UMODEL.Users.objects.all().count(),
     }
     return render(request,'quiz/admin_user.html',context=dict)
 
 @login_required(login_url='adminlogin')
 def admin_view_user_view(request):
-    users= UMODEL.User.objects.all()
+    users= UMODEL.Users.objects.all()
     return render(request,'quiz/admin_view_user.html',{'users':users})
 
 #Vistas para los resultados
 @login_required(login_url='adminlogin')
 def admin_view_user_marks_view(request):
-    users= UMODEL.User.objects.all()
+    users= UMODEL.Users.objects.all()
     return render(request,'quiz/admin_view_user_marks.html',{'users':users})
 
 @login_required(login_url='adminlogin')
@@ -61,7 +61,7 @@ def admin_view_marks_view(request,pk):
     return response
 
 def admin_view_statistics(request, pk):
-    user = UMODEL.User.objects.get(id = pk)
+    user = UMODEL.Users.objects.get(id = pk)
     results= models.Result.objects.all().filter(user=user)
     correctas = preguntas_totales = total_partidas = marks = 0
     for r in results:
@@ -82,7 +82,7 @@ def admin_view_statistics(request, pk):
 def admin_check_marks_view(request,pk):
     category = models.Category.objects.get(id=pk)
     user_id = request.COOKIES.get('user_id')
-    user= UMODEL.User.objects.get(id=user_id)
+    user= UMODEL.Users.objects.get(id=user_id)
 
     results= models.Result.objects.all().filter(exam=category).filter(user=user)
     return render(request,'quiz/admin_check_marks.html',{'results':results})
@@ -90,7 +90,7 @@ def admin_check_marks_view(request,pk):
 #Lógica para actualizar y eliminar usuarios
 @login_required(login_url='adminlogin')
 def update_user_view(request,pk):
-    student=UMODEL.User.objects.get(id=pk)
+    student=UMODEL.Users.objects.get(id=pk)
     user=UMODEL.User.objects.get(id=student.user_id)
     userForm=SFORM.StudentUserForm(instance=user)
     studentForm=SFORM.UserForm(request.FILES,instance=student)
@@ -108,7 +108,7 @@ def update_user_view(request,pk):
 
 @login_required(login_url='adminlogin')
 def delete_user_view(request,pk):
-    student=UMODEL.User.objects.get(id=pk)
+    student=UMODEL.Users.objects.get(id=pk)
     user=User.objects.get(id=student.user_id)
     user.delete()
     student.delete()

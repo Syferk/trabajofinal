@@ -20,32 +20,26 @@
       margin: 100px;
     }
     #panel2{
-      background: #6d047bf5;
+      background: #2f323a;
     }
     #panel{
-      border-color: #fffffff5;
-      color: white; 
+      border-color: #2f323a;
     }
-    .home-section{
-background: #00F260;
-background: linear-gradient(#6d047bf5, #ffffff);
-  }
   </style>
 </head>
-
 <br><br>
 <div class="container">
-  <div class="panel" id="panel">
+  <div class="panel panel-primary" id="panel">
     <div class="panel-heading" id="panel2">
-      <h6 class="panel-title">Categorías</h6>
+      <h6 class="panel-title">Tus resultados</h6>
     </div>
     <table class="table table-hover" id="dev-table">
       <thead>
         <tr>
 
-          <th>Nombre de categoría</th>
+          <th>Categoría</th>
           
-          <th>Jugar</th>
+          <th>Ver resultados</th>
         </tr>
       </thead>
       {% for c in categories %}
@@ -53,11 +47,12 @@ background: linear-gradient(#6d047bf5, #ffffff);
 
         <td> {{c.category_name}}</td>
         
-        <td><a class="btn btn-danger btn-xs" href="{% url 'take-exam' c.id  %}"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'check-marks' c.id  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
       </tr>
       {% endfor %}
     </table>
   </div>
 </div>
 
+<br><br><br><br><br><br>
 {% endblock content %}

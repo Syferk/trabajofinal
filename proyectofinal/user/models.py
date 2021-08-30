@@ -6,7 +6,7 @@ class Users(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     profile_pic= models.ImageField(upload_to='profile_pic/user/',null=True,blank=True)
     address = models.CharField(max_length=40)
-    mobile = models.CharField(max_length=20,null=False)
+    mobile = models.CharField(max_length=20,null=True, blank=True)
    
     @property
     def get_name(self):
