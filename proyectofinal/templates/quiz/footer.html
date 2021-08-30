@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    footer{
+      width: 100%;
+      background:#5b3f64;
+      color: black;
+    }
+
+    .container-footer-all{
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px;
+    }
+
+    .container-body{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .column1{
+      max-width: 400px;
+    }
+    .column1 h1{
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .column1 p{
+      color: black; 
+      margin-top: 20px;
+      padding-top: 10px;
+    }
+    .column2{
+      max-width: 400px;
+      padding-left: center;
+    }
+    .column2 h1{
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .column2 a{
+      color: black;
+    }
+    .row{
+      margin-top: 20px;
+      display: flex;
+    }
+    .row img{
+      width: 36px;
+      height: 36px;
+    }
+    .row label{
+      margin-top: 10px;
+      margin-left: 10px;
+      color: black;
+    }
+    .column3{
+      max-width: 400px;
+      padding-left: 15px;
+    }
+    .column3 h1{
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .row2{
+      margin-top: 20px;
+      display: flex;
+    }
+    .row2 img{
+      width: 36px;
+      height: 36px;
+    }
+    .row2 label{
+      margin-top: 10px;
+      margin-left: 20px;
+      max-width: 140px;
+    }
+    .container-footer{
+      width: 100%;
+      background: #26213a;
+      display: flex;      
+      justify-content: center;
+    }
+    .footer{
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    .copyright{
+      color: black;
+    }
+    .copyright a{
+      color: #444444 ;
+      font-weight: bold;
+    }
+  
+    @media screen and (max-width:1200px){
+      .container-body{
+        flex-wrap: wrap;      
+      }
+      .column1{
+        max-width: 100%;
+      }
+      .column2,.column3{
+        margin-top: 20px;
+      }
+    }
+    
+
+    </style>
+    <footer>
+        <div class="container-footer-all">
+            <div class="container-body">
+
+              <div class="column1">
+                  <h1>¿Quiénes somos?</h1>
+                  <p>Somos un grupo de estudiantes de programación. 
+                    Esta aplicación web ha sido desarrollada como uno de los objetivos propuestos en la capacitación de "Programación Web" del Informatorio Chaco 2021.
+                  </p>
+
+              </div>
+
+              <div class="column2">
+                <h1>Sitios Webs</h1>
+                <div class="row">
+                    <img src="{% static 'icon/info.png' %}">
+                    <a href="https://empleo.chaco.gob.ar/informatorio">Informatorio</a>
+                </div>
+
+                
+                <div class="row">
+                <img src="{% static 'icon/GitHub.png' %}">
+                <a href="https://github.com/Syferk/privado">Repositorio de GitHub</a>
+                </div> 
+              </div>  
+            
+            <div class="column3">
+                <h1>Contáctanos</h1>
+
+                <div class="row2">
+                  <img src="{% static 'icon/casa.png' %}">
+                  <label>Argentina, Chaco, Pcia.Roque Saenz Peña</label>                  
+                </div>
+
+                <div class="row2">
+                  <img src="{% static 'icon/telefono.png' %}">
+                  <label>+549 364 4454689</label>
+                </div>
+
+                <div class="row2">
+                  <img src="{% static 'icon/mensaje.png' %}">
+                  <label>yunou_staff@gmail.com</label>
+                </div>
+
+
+              </div>     
+                                        
+                    
+        </div>
+
+        <div class="container-footer">
+          <div class="footer">
+            <div class="copyright">
+                2021 Todos los Derechos Reservados |  <a href="">Yunou</a>
+            </div>
+          </div>
+        </div>         
+      </div>      
+
+    </footer>
+
+</body>
+</html>

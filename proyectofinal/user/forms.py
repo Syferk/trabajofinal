@@ -13,5 +13,5 @@ class StudentUserForm(forms.ModelForm):
 
 class UserForm(forms.ModelForm):
     class Meta:
-        model=models.User
+        model=models.Users
         fields=['address','mobile','profile_pic']

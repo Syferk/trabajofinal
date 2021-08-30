@@ -29,9 +29,9 @@ def user_signup_view(request):
             user=userForm.save()
             user.set_password(user.password)
             user.save()
-            user=studentForm.save(commit=False)
-            user.user=user
-            user.save()
+            users=studentForm.save(commit=False)
+            users.user=user
+            users.save()
             my_user_group = Group.objects.get_or_create(name='USER')
             my_user_group[0].user_set.add(user)
         return HttpResponseRedirect('userlogin')
