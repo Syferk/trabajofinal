@@ -5,7 +5,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required,user_passes_test
 from quiz import models as QMODEL
 from user import models as UMODEL
-from django.contrib.auth import models
+from django.contrib.auth import models, authenticate
 
 
 # Create your views here.
@@ -65,10 +65,17 @@ def edit_profile(request):
         userForm=forms.StudentUserForm(request.POST, instance=user)
         studentForm=forms.UserForm(request.POST, request.FILES,instance=student)
         if studentForm.is_valid() and userForm.is_valid():
-            user = userForm.save()
-            user.set_password(user.password)
-            user.save()
-            studentForm.save()
+            
+            password = userForm.cleaned_data['password']
+            usuario = authenticate(username = request.user.username, password=password)
+            if usuario is not None:
+                user.set_password(user.password)
+                user = userForm.save()
+                studentForm.save()
+            else:
+                return redirect("edit-profile")
+            #user = form.save()
+            
             return redirect("user-dashboard")
     contexto = {"userForm":userForm, "studentForm": studentForm}
     return render(request, "user/edit_profile.html",contexto)
