@@ -15,36 +15,57 @@
 
   input[type=submit] {
     width: 100%;
-    background-color: #000;
+    background-color: #6d047bf5;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
   }
 
   input[type=submit]:hover {
-    background-color: #2f323a;
+    background-color: #970aaaf5;
   }
 
+  .home-section{
+          background: #00F260;
+          background: linear-gradient(#6d047bf5, #ffffff);
 
+        }
+#id_course_name, #id_question_number, #id_total_marks {
+          border-radius: 20px;
+          border-color:  rgb(68, 0, 124);
+          border-width: 1px;
+        }
+.content {
+          display:block;
+          padding: 10px;
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;
+          background: #ffffff;
+          opacity: 70%;
+          border-radius: 20px;
+          box-shadow: black 5px 5px;
+          font-family: "Poppins", sans-serif !important;
+}
   </style>
 
 
 </head>
-
-<br><br>
+<br>
 <h3 style="text-align:center;">ACTUALIZAR CATEGORÍA</h3>
+<br>
 <div>
   <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
       {% csrf_token %}
-        <label for="category_name">Nombre de categoría</label>
+        <label for="course_name">Nombre de categoría</label>
         {% render_field categoryForm.category_name class="form-control" placeholder="Ej: Historia" %}
         
         <label for="question_number">Número máximo de preguntas</label>
-        {% render_field categoryForm.question_number class="form-control" placeholder="Ej: 30" %}
-            
+        {% render_field categoryForm.question_number class="form-control" placeholder="Ej: 10" %}
+    
 <br><br>
     <input type="submit" value="Actualizar">
   </form>
@@ -52,5 +73,5 @@
 
 
 
-<br><br><br><br><br><br><br><br>
+<br><br>
 {% endblock content %}

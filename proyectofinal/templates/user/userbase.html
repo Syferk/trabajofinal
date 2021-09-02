@@ -3,40 +3,43 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  {% block title %}
-    <title>Yunou</title>
-  {% endblock %}
+  <meta charset="utf-8" />
 
   <style media="screen">
     /* Google Fonts Import Link */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-    *{
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
     }
-    .sidebar{
+
+    .sidebar {
       position: fixed;
       top: 0;
       left: 0;
       height: 100%;
       width: 260px;
-      background: #11101d;
+      background: #6d047bf5;
       z-index: 100;
       transition: all 0.5s ease;
+
     }
-    .sidebar.close{
+
+    .sidebar.close {
       width: 78px;
     }
-    .sidebar .logo-details{
+
+    .sidebar .logo-details {
       height: 60px;
       width: 100%;
       display: flex;
       align-items: center;
     }
-    .sidebar .logo-details i{
+
+    .sidebar .logo-details i {
       font-size: 30px;
       color: #fff;
       height: 50px;
@@ -44,46 +47,56 @@
       text-align: center;
       line-height: 50px;
     }
-    .sidebar .logo-details .logo_name{
+
+    .sidebar .logo-details .logo_name {
       font-size: 22px;
       color: #fff;
       font-weight: 600;
       transition: 0.3s ease;
       transition-delay: 0.1s;
     }
-    .sidebar.close .logo-details .logo_name{
+
+    .sidebar.close .logo-details .logo_name {
       transition-delay: 0s;
       opacity: 0;
       pointer-events: none;
     }
-    .sidebar .nav-links{
+
+    .sidebar .nav-links {
       height: 100%;
       padding: 30px 0 150px 0;
       overflow: auto;
     }
-    .sidebar.close .nav-links{
+
+    .sidebar.close .nav-links {
       overflow: visible;
     }
-    .sidebar .nav-links::-webkit-scrollbar{
+
+    .sidebar .nav-links::-webkit-scrollbar {
       display: none;
     }
-    .sidebar .nav-links li{
+
+    .sidebar .nav-links li {
       position: relative;
       list-style: none;
       transition: all 0.4s ease;
     }
-    .sidebar .nav-links li:hover{
-      background: #1d1b31;
+
+    .sidebar .nav-links li:hover {
+      background: #6d047bf5;
     }
-    .sidebar .nav-links li .iocn-link{
+
+    .sidebar .nav-links li .iocn-link {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .sidebar.close .nav-links li .iocn-link{
-      display: block
+
+    .sidebar.close .nav-links li .iocn-link {
+      display: block;
     }
-    .sidebar .nav-links li i{
+
+    .sidebar .nav-links li i {
       height: 50px;
       min-width: 78px;
       text-align: center;
@@ -93,37 +106,45 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    .sidebar .nav-links li.showMenu i.arrow{
+
+    .sidebar .nav-links li.showMenu i.arrow {
       transform: rotate(-180deg);
     }
-    .sidebar.close .nav-links i.arrow{
+
+    .sidebar.close .nav-links i.arrow {
       display: none;
     }
-    .sidebar .nav-links li a{
+
+    .sidebar .nav-links li a {
       display: flex;
       align-items: center;
       text-decoration: none;
     }
-    .sidebar .nav-links li a .link_name{
+
+    .sidebar .nav-links li a .link_name {
       font-size: 18px;
       font-weight: 400;
       color: #fff;
       transition: all 0.4s ease;
     }
-    .sidebar.close .nav-links li a .link_name{
+
+    .sidebar.close .nav-links li a .link_name {
       opacity: 0;
       pointer-events: none;
     }
-    .sidebar .nav-links li .sub-menu{
+
+    .sidebar .nav-links li .sub-menu {
       padding: 6px 6px 14px 80px;
       margin-top: -10px;
-      background: #1d1b31;
+      background: #6d047bf5;
       display: none;
     }
-    .sidebar .nav-links li.showMenu .sub-menu{
+
+    .sidebar .nav-links li.showMenu .sub-menu {
       display: block;
     }
-    .sidebar .nav-links li .sub-menu a{
+
+    .sidebar .nav-links li .sub-menu a {
       color: #fff;
       font-size: 15px;
       padding: 5px 0;
@@ -131,10 +152,12 @@
       opacity: 0.6;
       transition: all 0.3s ease;
     }
-    .sidebar .nav-links li .sub-menu a:hover{
+
+    .sidebar .nav-links li .sub-menu a:hover {
       opacity: 1;
     }
-    .sidebar.close .nav-links li .sub-menu{
+
+    .sidebar.close .nav-links li .sub-menu {
       position: absolute;
       left: 100%;
       top: -10px;
@@ -146,139 +169,168 @@
       pointer-events: none;
       transition: 0s;
     }
-    .sidebar.close .nav-links li:hover .sub-menu{
+
+    .sidebar.close .nav-links li:hover .sub-menu {
       top: 0;
       opacity: 1;
       pointer-events: auto;
       transition: all 0.4s ease;
     }
-    .sidebar .nav-links li .sub-menu .link_name{
+
+    .sidebar .nav-links li .sub-menu .link_name {
       display: none;
     }
-    .sidebar.close .nav-links li .sub-menu .link_name{
+
+    .sidebar.close .nav-links li .sub-menu .link_name {
       font-size: 18px;
       opacity: 1;
       display: block;
     }
-    .sidebar .nav-links li .sub-menu.blank{
+
+    .sidebar .nav-links li .sub-menu.blank {
       opacity: 1;
       pointer-events: auto;
       padding: 3px 20px 6px 16px;
       opacity: 0;
       pointer-events: none;
     }
-    .sidebar .nav-links li:hover .sub-menu.blank{
+
+    .sidebar .nav-links li:hover .sub-menu.blank {
       top: 50%;
       transform: translateY(-50%);
     }
-    
-    .sidebar .profile-details{
+
+    .sidebar .profile-details {
       position: fixed;
       bottom: 0;
       width: 260px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #1d1b31;
+      background: #6d047bf5;
       padding: 12px 0;
       transition: all 0.5s ease;
     }
+
     .sidebar.close .profile-details,
-    .sidebar.close .logo-details{
+    .sidebar.close .logo-details {
       background: none;
     }
+
     .sidebar.close .profile-details,
-    .sidebar.close .logo-details{
+    .sidebar.close .logo-details {
       width: 78px;
     }
-    .sidebar .profile-details .profile-content{
+
+    .sidebar .profile-details .profile-content {
       display: flex;
       align-items: center;
     }
-  
-    .sidebar .logo-details img{
+
+    .sidebar .logo-details img {
+      height: 48px;
+      width: 48px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin: 0 14px 0 12px;
+      background: #6d047bf5;
+      transition: all 0.5s ease;
+    }
+
+    .sidebar .profile-details img {
       height: 52px;
       width: 52px;
       object-fit: cover;
       border-radius: 16px;
       margin: 0 14px 0 12px;
-      background: #11101d;
+      background: #6d047bf5;
       transition: all 0.5s ease;
     }
-    .sidebar .profile-details img{
-      height: 52px;
-      width: 52px;
-      object-fit: cover;
-      border-radius: 16px;
-      margin: 0 14px 0 12px;
-      background: #1d1b31;
-      transition: all 0.5s ease;
-    }
-    .sidebar.close .profile-details img ,
-    .sidebar.close .logo-details img{
+
+    .sidebar.close .profile-details img,
+    .sidebar.close .logo-details img {
       padding: 10px;
     }
+
     .sidebar .profile-details .profile_name,
-    .sidebar .profile-details .job{
+    .sidebar .profile-details .job {
       color: #fff;
       font-size: 18px;
       font-weight: 500;
       white-space: nowrap;
     }
+
     .sidebar.close .profile-details i,
     .sidebar.close .profile-details .profile_name,
-    .sidebar.close .profile-details .job{
+    .sidebar.close .profile-details .job {
       display: none;
     }
-    .sidebar .profile-details .job{
+
+    .sidebar .profile-details .job {
       font-size: 12px;
     }
-    .home-section{
+
+    .home-section {
       position: relative;
-      background: #FFF;
+      background: #e4e9f7;
       height: 100vh;
       left: 260px;
       width: calc(100% - 260px);
       transition: all 0.5s ease;
     }
-    .sidebar.close ~ .home-section{
+
+    .sidebar.close~.home-section {
       left: 78px;
       width: calc(100% - 78px);
     }
-    .home-section .home-content{
+
+    .home-section .home-content {
       height: 60px;
       display: flex;
       align-items: center;
     }
+
     .home-section .home-content .bx-menu,
-    .home-section .home-content .text{
-      color: #11101d;
+    .home-section .home-content .text {
+      color: white;
       font-size: 35px;
     }
-    .home-section .home-content .bx-menu{
+
+    .home-section .home-content .bx-menu {
       margin: 0 15px;
       cursor: pointer;
     }
-    .home-section .home-content .text{
+
+    .home-section .home-content .text {
       font-size: 26px;
       font-weight: 600;
     }
+
     @media (max-width: 420px) {
-      .sidebar.close .nav-links li .sub-menu{
+      .sidebar.close .nav-links li .sub-menu {
         display: none;
       }
-}
+    }
 
-
+    .menu-fixed {
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      max-width: 60px;
+      width: 100%;
+    }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-
   <div class="sidebar close">
     <div class="logo-details">
       <img src="{% static 'image/logo.png' %}" alt="profileImg">
@@ -287,17 +339,19 @@
     <ul class="nav-links">
       <li>
         <a href="/user/user-dashboard">
-          <i class='bx bx-grid-alt' ></i>
+          <i class="bx bx-grid-alt"></i>
           <span class="link_name">General</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/user/user-dashboard">General</a></li>
+          <li>
+            <a class="link_name" href="/user/user-dashboard">General</a>
+          </li>
         </ul>
       </li>
       <li>
         <div class="iocn-link">
           <a href="/user/user-exam">
-            <i class='bx bx-collection' ></i>
+            <i class="bx bx-collection"></i>
             <span class="link_name">Jugar</span>
           </a>
         </div>
@@ -308,23 +362,40 @@
       <li>
         <div class="iocn-link">
           <a href="/user/user-marks">
-            <i class='bx bx-book-alt' ></i>
+            <i class="bx bx-book-alt"></i>
             <span class="link_name">Mis partidas</span>
           </a>
         </div>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/user/user-marks">Mis partidas</a></li>
+          <li>
+            <a class="link_name" href="/user/user-marks">Mis partidas</a>
+          </li>
         </ul>
       </li>
       <li>
         <a href="/user/user-statistics">
-          <i class='bx bx-pie-chart-alt-2' ></i>
+          <i class="bx bx-pie-chart-alt-2"></i>
           <span class="link_name">Estadísticas</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/user/user-statistics">Estadísticas</a></li>
+          <li>
+            <a class="link_name" href="/user/user-statistics">Estadísticas</a>
+          </li>
         </ul>
       </li>
+
+      <li>
+        <a href="/user/user-ranking">
+          <i class="bx bx-trophy"></i>
+          <span class="link_name">Ranking</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li>
+            <a class="link_name" href="/user/user-ranking">Ranking</a>
+          </li>
+        </ul>
+      </li>
+
       <li>
         <a href="/user/edit-profile">
           <i class='bx bx-user' ></i>
@@ -334,60 +405,62 @@
           <li><a class="link_name" href="/user/edit-profile">Editar usuario</a></li>
         </ul>
       </li>
+
+      <li></li>
       <li>
-        <a href="/user/user-ranking">
-          <i class='bx bx-trophy'></i>
-          <span class="link_name">Ranking</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/user/user-ranking">Ranking</a></li>
-        </ul>
+        <div class="profile-details">
+          <div class="profile-content" style="width: 50px;">
+            <img src="{% static 'image/admin.png' %}" alt="profileImg">
+          </div>
+          <div class="name-job">
+            <div class="profile_name">{{request.user.first_name}}</div>
+            <div class="job">(Usuario)</div>
+          </div>
+          <a href="/logout" class="logout_btn"><i class="bx bx-log-out"></i></a>
+        </div>
       </li>
-      <li>
-    <div class="profile-details">
-      <div class="profile-content">
-        <img src="{% static 'image/admin.png' %}" alt="profileImg">
-      </div>
-      <div class="name-job">
-        <div class="profile_name">{{request.user.first_name}}</div>
-        <div class="job">(Usuario)</div>
-      </div>
-      <a href="/logout" class="logout_btn"><i class='bx bx-log-out'></i></a>
-      
-    </div>
-  </li>
-</ul>
+    </ul>
   </div>
   <section class="home-section">
-    
-    <div class="home-content">
-      <i class='bx bx-menu' ></i>
+    <div class="home-content .menu-fixed" style="
+          background-color: linear-gradient(
+            180deg,
+            #6d047bf5,
+            #ffffff
+          ) !important;
+        ">
+      <i class="bx bx-menu"></i>
     </div>
     <!--content start-->
-<div class="content">
-  <br><br><br><br><br>
-  {% block content %}
-
-  {% endblock content %}
-  {% include "quiz/footer.html" %}
-</div>
-<!--content end-->
-
+    <div class="content">{% block content %} {% endblock content %}</div>
+    <!--content end-->
   </section>
   <script>
-  let arrow = document.querySelectorAll(".arrow");
-  for (var i = 0; i < arrow.length; i++) {
-    arrow[i].addEventListener("click", (e)=>{
-   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-   arrowParent.classList.toggle("showMenu");
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e) => {
+        let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+        arrowParent.classList.toggle("showMenu");
+      });
+    }
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".bx-menu");
+    console.log(sidebarBtn);
+    sidebarBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("close");
     });
-  }
-  let sidebar = document.querySelector(".sidebar");
-  let sidebarBtn = document.querySelector(".bx-menu");
-  console.log(sidebarBtn);
-  sidebarBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("close");
-  });
+
+    $(document).ready(function () {
+      var altura = $(".home-content").offset().top;
+
+      $(window).on("scroll", function () {
+        if ($(window).scrollTop() > altura) {
+          $(".home-content").addClass("menu-fixed");
+        } else {
+          $(".home-content").removeClass("menu-fixed");
+        }
+      });
+    });
   </script>
 </body>
 

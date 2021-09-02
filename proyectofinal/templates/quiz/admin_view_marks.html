@@ -19,20 +19,29 @@
     .row {
       margin: 100px;
     }
-    #panel2{
-      background: #2f323a;
-    }
-    #panel{
-      border-color: #2f323a;
-    }
+   
     th, tr {
       text-align: center;
+    }
+    .home-section{
+    background: #00F260;
+    background: linear-gradient(#6d047bf5, #ffffff);
+  }
+  #panel2{
+      background: #6d047bf5;
+    }
+    #panel{
+      border-color: #6d047bf5;
+    }
+     .panel-title{
+      font-family: "Poppins", sans-serif;
+      color: white;
     }
   </style>
 </head>
 <br><br>
 <div class="container">
-  <div class="panel panel-primary" id="panel">
+  <div class="panel" id="panel">
     <div class="panel-heading" id="panel2">
       <h6 class="panel-title">Cuestionarios realizados</h6>
     </div>
@@ -45,13 +54,13 @@
           <th>Ver resultados</th>
         </tr>
       </thead>
-      {% for c in categories %}
+      {% for t in categories %}
       <tr>
 
-        <td> {{c.category_name}}</td>
+        <td> {{t.category_name}}</td>
         
         
-        <td><a class="btn btn-danger btn-xs" href="{% url 'admin-check-marks' c.id  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'admin-check-marks' t.id  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
       </tr>
       {% endfor %}
     </table>

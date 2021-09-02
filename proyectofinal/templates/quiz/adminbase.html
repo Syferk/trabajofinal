@@ -21,7 +21,7 @@
       left: 0;
       height: 100%;
       width: 260px;
-      background: #11101d;
+      background: #6d047bf5;
       z-index: 100;
       transition: all 0.5s ease;
     }
@@ -71,7 +71,7 @@
       transition: all 0.4s ease;
     }
     .sidebar .nav-links li:hover{
-      background: #1d1b31;
+      background: #6d047bf5;
     }
     .sidebar .nav-links li .iocn-link{
       display: flex;
@@ -115,7 +115,7 @@
     .sidebar .nav-links li .sub-menu{
       padding: 6px 6px 14px 80px;
       margin-top: -10px;
-      background: #1d1b31;
+      background: #6d047bf5;
       display: none;
     }
     .sidebar .nav-links li.showMenu .sub-menu{
@@ -177,7 +177,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #1d1b31;
+      background: #6d047bf5;
       padding: 12px 0;
       transition: all 0.5s ease;
     }
@@ -200,7 +200,7 @@
       object-fit: cover;
       border-radius: 16px;
       margin: 0 14px 0 12px;
-      background: #11101d;
+      background: #6d047bf5;
       transition: all 0.5s ease;
     }
     .sidebar .profile-details img{
@@ -209,7 +209,7 @@
       object-fit: cover;
       border-radius: 16px;
       margin: 0 14px 0 12px;
-      background: #1d1b31;
+      background: #6d047bf5;
       transition: all 0.5s ease;
     }
     .sidebar.close .profile-details img ,
@@ -250,7 +250,7 @@
     }
     .home-section .home-content .bx-menu,
     .home-section .home-content .text{
-      color: #11101d;
+      color: white;
       font-size: 35px;
     }
     .home-section .home-content .bx-menu{
@@ -266,7 +266,12 @@
         display: none;
       }
 }
-
+  .menu-fixed {
+	position:fixed;
+	z-index:1000;
+	max-width:60px;
+	width:100%;
+}
 
   </style>
 
@@ -280,7 +285,7 @@
 <body>
     <div class="sidebar close">
       <div class="logo-details">
-        <img src="{% static "image/logo.png" %}" alt="profileImg">
+        <img src="{% static 'image/logo.png' %}" alt="profileImg">
         <span class="logo_name">Yunou</span>
       </div>
       <ul class="nav-links">
@@ -317,13 +322,14 @@
         </li>
         <li>
           <a href="/admin-view-ranking">
-            <i class='bx bx-trophy' ></i>
+            <i class='bx bx-trophy'></i>
             <span class="link_name">Ranking</span>
           </a>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="/admin-view-ranking">Ranking</a></li>
           </ul>
         </li>
+
         <li>
           <a href="/admin-user">
             <i class='bx bx-user' ></i>
@@ -336,7 +342,7 @@
         <li>
       <div class="profile-details">
         <div class="profile-content">
-          <img src="{% static "image/admin.png" %}" alt="profileImg">
+          <img src="{% static 'image/admin.png' %}" alt="profileImg">
         </div>
         <div class="name-job">
           <div class="profile_name">{{request.user.first_name}}</div>
@@ -351,15 +357,14 @@
     <section class="home-section">
       
       <div class="home-content">
-        <i class='bx bx-menu' ></i>
+        <i class='bx bx-menu menu-fixed' ></i>
       </div>
       <!--content start-->
   <div class="content">
-    <br><br><br><br><br>
     {% block content %}
 
     {% endblock content %}
-    
+
   </div>
   <!--content end-->
   
@@ -382,6 +387,5 @@
 
 
 </body>
-{% include "quiz/footer.html" %}
 
 </html>

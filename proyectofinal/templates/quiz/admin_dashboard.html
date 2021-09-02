@@ -6,8 +6,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -22,19 +24,15 @@
       }
   
       .bg-c-blue {
-        background: linear-gradient(180deg, #4C51BF, #ffffff);
-      }
-  
-      .bg-c-green {
-        background:#4C51BF;
+        background: linear-gradient(180deg, #785dad, #ffffff);
       }
   
       .bg-c-yellow {
-        background: linear-gradient(180deg, #F56565, #ffffff);
+        background: linear-gradient(180deg, #913691, #ffffff);
       }
   
       .bg-c-pink {
-        background: linear-gradient(180deg, #663a30, #ffffff);
+        background: linear-gradient(180deg, #5b3066, #ffffff);
       }
   
   
@@ -67,13 +65,18 @@
       left: 0px;
       right: 0px;
     }
+    .home-section{
+    background: #00F260;
+    background: linear-gradient(#6d047bf5, #ffffff);
+  }
+
     </style>
   </head>
 <br><br>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-xl-3">
+  <div class="container ">
+    <div class="row center-block">
+      <div class="col-md-4 ">
         <div class="card bg-c-blue order-card">
           <div class="card-block">
             <h6 class="m-b-20"> <a href="admin-view-user" style="text-decoration: none;color:white;">Total de usuarios</a> </h6>
@@ -82,18 +85,16 @@
           </div>
         </div>
       </div>
-  
-      <div class="col-md-4 col-xl-3">
+      <div class="col-md-3">
         <div class="card bg-c-yellow order-card">
           <div class="card-block">
             <h6 class="m-b-20"><a href="admin-view-category" style="text-decoration: none;color:white;">Categorías</a></h6>
            <h2 class="text-right"><i class="fas fa-book f-left"></i><span>{{total_category}}</span></h2>
-            
           </div>
         </div>
       </div>
   
-      <div class="col-md-4 col-xl-3">
+      <div class="col-md-5 ">
         <div class="card bg-c-pink order-card">
           <div class="card-block">
             <h6 class="m-b-20"><a href="admin-view-question" style="text-decoration: none;color:white;">Número de preguntas</a></h6>
@@ -102,8 +103,6 @@
           </div>
         </div>
       </div>
-
-      
     </div>
   </div>
 

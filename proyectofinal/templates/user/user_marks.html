@@ -19,40 +19,61 @@
     .row {
       margin: 100px;
     }
-    #panel2{
+
+    #panel2 {
       background: #6d047bf5;
     }
-    #panel{
+
+    #panel {
       border-color: #6d047bf5;
     }
-    .home-section{
+
+    .home-section {
       background: #00F260;
-    background: linear-gradient(#6d047bf5, #ffffff);
-  }
+      background: linear-gradient(#6d047bf5, #ffffff);
+    }
+
+    .panel {
+      color: white;
+    }
+    th,
+    tr {
+      text-align: center;
+    }
+
+    @media screen and (max-width: 600px) {
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    .panel-title {
+      font-family: "Poppins", sans-serif !important;
+      color: white;
+    }
   </style>
 </head>
 <br><br>
 <div class="container">
-  <div class="panel panel-primary" id="panel">
+  <div class="panel " id="panel">
     <div class="panel-heading" id="panel2">
       <h6 class="panel-title">Partidas jugadas</h6>
     </div>
     <table class="table table-hover" id="dev-table">
       <thead>
         <tr>
-
           <th>Categoría</th>
-          
           <th>Ver mis puntuaciones</th>
-          
         </tr>
       </thead>
       {% for t in categories %}
       <tr>
 
         <td> {{t.category_name}}</td>
-        
-        <td><a class="btn btn-danger btn-xs" href="{% url 'check-marks' t.id  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+
+        <td><a class="btn btn-danger btn-xs" href="{% url 'check-marks' t.id  %}"><span
+              class="glyphicon glyphicon-eye-open"></span></a></td>
       </tr>
       {% endfor %}
     </table>

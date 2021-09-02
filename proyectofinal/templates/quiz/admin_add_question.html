@@ -3,63 +3,63 @@
 {% block content %}
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
   <style>
 
-  a:link{
-    text-decoration: none;
+input[type=text], select,input[type=number] ,input[type=password], textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
   }
-  #button-añadir{
-    position: relative;
+
+  .btn {
+    width: 100%;
     background-color: #6d047bf5;
-    text-align: center;
-    display: inline;
-    text-decoration: none;
-    float: center;
-    margin: center;
-    border-color: rgb(0, 0, 0);
-    font-weight: 600;
-    color: #FFF;
-    transition: 0.5s;
-    left: 350px;
-    margin-left: 15px;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
   }
-  #button-añadir:hover {
-    background: linear-gradient(#6d047bf5, #ffffff);
+
+  .btn:hover {
+    background-color: #9308a5f5;
   }
   .home-section{
-    background: #00F260;
-    background: linear-gradient(#6d047bf5, #ffffff);
-  }
-  .box {
-    display:block;
-    padding: 40px;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    background: #270341;
-    opacity: 70%;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: black 5px 5px;
-    color: white;
-} 
-h2{
-  text-align: center;
+          background: #00F260;
+          background: linear-gradient(#6d047bf5, #ffffff);
+
+        }
+.form-control, #id_marks, #id_option1, #id_option2, #id_option3,#id_option4 {
+          border-radius: 20px;
+          border-color:  rgb(68, 0, 124);
+          border-width: 1px;
+        }
+.content {
+          display:block;
+          padding: 10px;
+          width: 70%;
+          margin-left: auto;
+          margin-right: auto;
+          background: #ffffff;
+          opacity: 70%;
+          border-radius: 20px;
+          box-shadow: black 5px 5px;
+          font-family: "Poppins", sans-serif !important;
 }
   </style>
 </head>
 <body>
+<br><br>
+<div class="container">
+  <h3 style="text-align:center;">AÑADIR PREGUNTA</h3>
 
-<div class="box">
-<h2>AÑADIR PREGUNTA</h2>
-<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+  <form method="POST" autocomplete="off" style="margin-left:200px;margin-right:200px;">
     {%csrf_token%}
     <div class="form-group">
         <label for="question">Categoría</label>
@@ -87,8 +87,8 @@ h2{
     
 <br>
     <button type="submit" class="btn center-block" id="button-añadir">Añadir</button> 
-    <!-- <a href="{% url 'admin-add-question' %}" type="hidden"><input type="submit" class="btn center-block" id="button-añadir">Seguir añadiendo</button></a> -->
-</form> </div>
-<br><br><br>
-{% endblock content %}
+  </form> 
+</div>
+<br>
 </body>
+{% endblock content %}

@@ -3,80 +3,133 @@
 {%load static%}
 
 <head>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
   <style>
-     #button-enviar{
-        background-color: black;
-        text-align: center;
-        text-decoration: none;
-        float: center;
-        margin-right: 40px;
-        border-color: black;
-        font-size: 15px;
-        font-weight: 600;
-        color: #FFF;
-        transition: 0.5s;  
-      }
-      #button-enviar:hover {
-          background: #22242A;
-        }
-      
+    #button-enviar {
+      background-color: #6d047bf5;
+      text-align: center;
+      text-decoration: none;
+      float: center;
+      width: 40%;
+      margin-right: 30%;
+      margin-left: 30%;
+      border-color: black;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      transition: 0.5s;
+    }
+
+    #button-enviar:hover {
+      background: #92389ef5;
+    }
+
+    .home-section {
+      background: #00F260;
+      background: linear-gradient(#6d047bf5, #ffffff);
+    }
+
+    .jumbotron {
+      display: block;
+      padding-left: 10%;
+      padding-right: 10%;
+      margin-left: 15%;
+      margin-right: 15%;
+      background: #ffffff;
+      opacity: 90%;
+      border-radius: 20px;
+
+      width: 70%;
+
+      box-shadow: 1px 1px 1px 1px #000000f5;
+
+    }
+
+    .form {
+      font-family: "Poppins", sans-serif !important;
+      color: #611e80;
+
+
+    }
+
+    .form-check {
+      font-family: "Poppins", sans-serif !important;
+      color: rgb(111, 98, 117);
+    }
+
+    .form-check-input {
+      border: 2px solid #611e80;
+    }
+
+    h2 {
+      color: #611e80;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    h4 {
+      font-family: "Poppins", sans-serif !important;
+    }
+
+    h3 {
+      text-transform: uppercase;
+    }
   </style>
 </head>
 
-
 <div class="jumbotron my-4">
-
-  <form class="form" autocomplete="off" onsubmit="return saveAns()"  action="/user/calculate-marks" method="POST">
+  <form class="form" autocomplete="off" onsubmit="return saveAns()" action="/user/calculate-marks" method="POST">
     {% csrf_token %}
-      <h2 style="text-align: center;">{{category.category_name}}</h2>
-      <input type="hidden" name="category_id" value="{{category.id}}">
-      {% for q in questions%}
-      <h3 class="text-info">{{ forloop.counter }}. {{q.question}}</h3><h4 style="text-align: right;">Pregunta {{ forloop.counter }} / {{ category.question_number }}</h4>
-      
-      <input type="hidden" name="csrfmiddlewaretoken" value="C24rUotmdHawVQJL3KrqiWxvti8UffOFYUc8TRbZtLt36AVLdP3jbkzUVe3beRAa">
-      
-        <input type="hidden" name="pregunta" value="{{q.id}}">
-        
-          <div class="form-check mx-4">
-            <input class="form-check-input" type="radio" name="{{ q.id }}" id="{{q.option1}}" value="Option1" required>
-            <label class="form-check-label" for="option1">
-              {{q.option1}}
-            </label>
-          </div>
+    <hr>
+    <div>
+      <h2>{{category.category_name}}</h2>
+    </div>
+    <hr>
+    <input type="hidden" name="category_id" value="{{category.id}}">
+    {% for q in questions%}
+    <h3>
+      <strong>
+        {{ forloop.counter }}. {{q.question}}
+      </strong>
+    </h3>
+    <h4 style="text-align: right">
+      Pregunta {{ forloop.counter }} / {{ category.question_number }}
+    </h4>
 
-        
-          <div class="form-check mx-4">
-            <input class="form-check-input" type="radio" name="{{ q.id }}" id="{{q.option2}}" value="Option2" required>
-            <label class="form-check-label" for="option2">
-              {{q.option2}}
-            </label>
-          </div>
+    <input type="hidden" name="csrfmiddlewaretoken"
+      value="C24rUotmdHawVQJL3KrqiWxvti8UffOFYUc8TRbZtLt36AVLdP3jbkzUVe3beRAa" />
 
-        
-          <div class="form-check mx-4">
-            <input class="form-check-input" type="radio" name="{{ q.id }}" id="{{q.option3}}" value="Option3" required>
-            <label class="form-check-label" for="option3">
-              {{q.option3}}
-            </label>
-          </div>
+    <input type="hidden" name="pregunta" value="{{q.id}}" />
 
-        
-          <div class="form-check mx-4">
-            <input class="form-check-input" type="radio" name="{{ q.id }}" id="{{q.option4}}" value="Option4" required>
-            <label class="form-check-label" for="option4">
-              {{q.option4}}
-            </label>
-          </div>
+    <div class="form-check mx-4">
+      <input class="form-check-input" type="radio" name="{{ q.id }}" id="{{q.option1}}" value="Option1" />
+      <label class="form-check-label" for="option1"> {{q.option1}} </label>
+    </div>
 
-        {% endfor %}
-        <input class="btn btn-info btn-lg" type="submit" value="Enviar" id="button-enviar">  
-    </form>
-  </div>
+    <div class="form-check mx-4">
+      <input class="form-check-input" type="radio" name="{{ q.id }}" id="{{q.option2}}" value="Option2" />
+      <label class="form-check-label" for="option2"> {{q.option2}} </label>
+    </div>
 
+    <div class="form-check mx-4">
+      <input class="form-check-input" type="radio" name="{{ q.id }}" id="{{q.option3}}" value="Option3" />
+      <label class="form-check-label" for="option3"> {{q.option3}} </label>
+    </div>
 
-<br><br><br><br><br><br>
+    <div class="form-check mx-4">
+      <input class="form-check-input" type="radio" name="{{ q.id }}" id="{{q.option4}}" value="Option4" />
+      <label class="form-check-label" for="option4"> {{q.option4}} </label>
+    </div>
+    <hr>
+    {% endfor %}
+    <input class="btn btn-info btn-lg" type="submit" value="Enviar" id="button-enviar" />
+
+  </form>
+</div>
+
+<br /><br /><br /><br /><br /><br />
 {% endblock content %}
