@@ -35,7 +35,7 @@
       <h2 style="text-align: center;">{{category.category_name}}</h2>
       <input type="hidden" name="category_id" value="{{category.id}}">
       {% for q in questions%}
-      <h3 class="text-info">{{ forloop.counter }}. {{q.question}} - id{{q.id}}</h3><h4 style="text-align: right;">Pregunta {{ forloop.counter }} / {{ category.question_number }}</h4>
+      <h3 class="text-info">{{ forloop.counter }}. {{q.question}}</h3><h4 style="text-align: right;">Pregunta {{ forloop.counter }} / {{ category.question_number }}</h4>
       
       <input type="hidden" name="csrfmiddlewaretoken" value="C24rUotmdHawVQJL3KrqiWxvti8UffOFYUc8TRbZtLt36AVLdP3jbkzUVe3beRAa">
       

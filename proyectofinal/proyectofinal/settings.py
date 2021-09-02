@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+from pathlib import Path
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,7 +26,12 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 SECRET_KEY = '^_@$%w!a7m^u0&rzh2pvbc2j*%zp4ny^q^w(2ftn@udf##)7)a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+ambiente = os.environ.get("ENVIROMENT")
+
+if ambiente == "PROD":
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -125,9 +131,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS=[
-STATIC_DIR,
- ]
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 
 LOGIN_REDIRECT_URL='/afterlogin'
 
@@ -144,3 +153,8 @@ EMAIL_HOST_PASSWORD = 'xyz' # host email password required
 # otherwise you will get SMTPAuthenticationError at /contactus
 # this process is required because google blocks apps authentication by default
 EMAIL_RECEIVING_USER = ['to@gmail.com'] # email on which you will receive messages sent from website
+
+
+if ambiente == "PROD":
+    import django_heroku
+    django_heroku.settings(locals())
