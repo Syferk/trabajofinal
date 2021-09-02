@@ -15,28 +15,49 @@
 
   input[type=submit] {
     width: 100%;
-    background-color: #000;
+    background-color: #6d047bf5;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
   }
 
   input[type=submit]:hover {
-    background-color: #2f323a;
+    background-color: #9308a5f5;
   }
+  .home-section{
+          background: #00F260;
+          background: linear-gradient(#6d047bf5, #ffffff);
 
+        }
+.form-control, #id_marks, #id_option1, #id_option2, #id_option3,#id_option4 {
+          border-radius: 20px;
+          border-color:  rgb(68, 0, 124);
+          border-width: 1px;
+        }
+.content {
+          display:block;
+          padding: 10px;
+          width: 70%;
+          margin-left: auto;
+          margin-right: auto;
+          background: #ffffff;
+          opacity: 70%;
+          border-radius: 20px;
+          box-shadow: black 5px 5px;
+          font-family: "Poppins", sans-serif !important;
+}
 
   </style>
 
 
 </head>
-
 <br><br>
+<div class="container">
 <h3 style="text-align:center;">ACTUALIZAR PREGUNTA</h3>
-<div>
+
   <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
       {% csrf_token %}
         <label for="question">Categoría</label>
@@ -61,11 +82,9 @@
         {% render_field questionForm.answer class="form-control" %}
 
 <br><br>
-    <input type="submit" value="Actualizar">
+    <input type="submit" style="display: flex;  justify-content: center;" value="Actualizar">
   </form>
 </div>
+<br>
 
-
-
-<br><br><br><br><br><br><br><br>
 {% endblock content %}

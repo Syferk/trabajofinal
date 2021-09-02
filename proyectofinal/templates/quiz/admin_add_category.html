@@ -2,52 +2,77 @@
 {% load widget_tweaks %}
 {% block content %}
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
     <style>
-        
-        a:link {
-          text-decoration: none;
-        }
-        #button-añadir{
+  
+    input[type=text], select,input[type=number] ,input[type=password], textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 
-          background-color: black;
-          text-align: center;
+  .btn {
+    width: 100%;
+    background-color: #6d047bf5;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
 
-          text-decoration: none;
-          float: center;
-          margin: center;
-          border-color: black;
-          font-weight: 600;
-          color: #FFF;
-          transition: 0.5s;
+  .btn:hover {
+    background-color: #970aaaf5;
+  }
+
+  .home-section{
+          background: #00F260;
+          background: linear-gradient(#6d047bf5, #ffffff);
+
         }
-        #button-añadir:hover {
-          background: #22242A;
+#id_course_name, #id_question_number, #id_total_marks {
+          border-radius: 20px;
+          border-color:  rgb(68, 0, 124);
+          border-width: 1px;
         }
-    </style>
+.content {
+          display:block;
+          padding: 10px;
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;
+          background: #ffffff;
+          opacity: 70%;
+          border-radius: 20px;
+          box-shadow: black 5px 5px;
+          font-family: "Poppins", sans-serif !important;
+}
+  #editable{
+    font-size: 11px;
+  }
+ </style>
 </head>
-<meta>
-<h2 style="text-align:center; color:#22242A;">AÑADIR CATEGORÍA</h2>
-<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+<br><h3 style="text-align:center;">AÑADIR CATEGORÍA</h3><br>
+
+<div>
+<form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
     {%csrf_token%}
-    <div class="form-group">
       <label for="category_name">Nombre de categoría</label>
       {% render_field categoryForm.category_name class="form-control" placeholder="Ej: Historia" %}
 
       <label for="question_number">Número de preguntas a responder</label>
-      {% render_field categoryForm.question_number class="form-control" placeholder="Ej: 30" %}
+      {% render_field categoryForm.question_number class="form-control" placeholder="Ej: 10" %}
+      <label for="" id ="editable"> (Deberá cargar el mínimo de preguntas que indique para hacer visible el cuestionario al usuario)</label>
 
-    </div>
-    
+      
 
-    <button type="submit" class="btn btn-primary" id="button-añadir">Añadir</button>
+    <button type="submit" class="btn center-block" id="button-añadir">Añadir</button>
   </form>
-<br><br><br>
+</div>
+<br><br>
 {% endblock content %}

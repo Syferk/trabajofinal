@@ -19,10 +19,12 @@
     .row {
       margin: 100px;
     }
-    #panel2{
+
+    #panel2 {
       background: #2f323a;
     }
-    #panel{
+
+    #panel {
       border-color: #2f323a;
     }
   </style>
@@ -38,16 +40,17 @@
         <tr>
 
           <th>Categoría</th>
-          
+
           <th>Ver resultados</th>
         </tr>
       </thead>
-      {% for c in categories %}
+      {% for t in categories %}
       <tr>
 
-        <td> {{c.category_name}}</td>
-        
-        <td><a class="btn btn-danger btn-xs" href="{% url 'check-marks' c.id  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+        <td> {{t.category_name}}</td>
+
+        <td><a class="btn btn-danger btn-xs" href="{% url 'check-marks' t.id  %}"><span
+              class="glyphicon glyphicon-eye-open"></span></a></td>
       </tr>
       {% endfor %}
     </table>

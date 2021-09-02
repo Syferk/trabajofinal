@@ -22,11 +22,11 @@
       }
   
       .bg-c-blue {
-        background: linear-gradient(180deg, #000, #ffffff);
+        background: linear-gradient(180deg, rgb(157, 86, 208), #ffffff);
       }
   
       .bg-c-green {
-        background: linear-gradient(180deg, #4C51BF, #ffffff);
+        background: linear-gradient(180deg, #9d20a9, #ffffff);
       }
   
       .bg-c-yellow {
@@ -42,7 +42,7 @@
         
         -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
         box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
-        border: 1px solid black;
+        border: 1px solid rgb(0, 0, 0);
         margin-bottom: 30px;
         -webkit-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
@@ -67,13 +67,17 @@
       left: 0px;
       right: 0px;
     }
+    .home-section{
+    background: #00F260;
+    background: linear-gradient(#6d047bf5, #ffffff);
+  }
     </style>
   </head>
 <br><br>
 
   <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-xl-6">
+    <div class="row center-block">
+      <div class="col-md-6">
         <div class="card bg-c-blue order-card">
           <div class="card-block">
             <h6 class="m-b-20"> <a href="admin-view-user" style="text-decoration: none;color:white;">Usuarios</a> </h6>
@@ -83,7 +87,7 @@
         </div>
       </div>
   
-      <div class="col-md-4 col-xl-6">
+      <div class="col-md-6">
         <div class="card bg-c-green order-card">
           <div class="card-block">
             <h6 class="m-b-20"><a href="admin-view-user-marks" style="text-decoration: none;color:white;">Estadísticas de usuarios</a> </h6>

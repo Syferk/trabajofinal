@@ -1,87 +1,157 @@
 <!DOCTYPE html>
 {% load widget_tweaks %}
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <style>
 
-        form{
-           margin: 50px; 
-          
-        }
-        #button-registro{
-          background-color: black;
-          text-align: center;
-          text-decoration: none;
-          float: center;
-          margin-right: 40px;
-          border-color: black;
-          font-size: 15px;
-          font-weight: 600;
-          color: #FFF;
-          transition: 0.5s;
-        }
-        #button-registro:hover {
-          background: #22242A;
-        }
-    </style>
-  </head>
-  <body>
-    {% include "quiz/navbar.html" %}
- 
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
 
+  <meta charset="utf-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-<br><br><br>
-<h3 style="text-align: center;color: #000;">CREA TU USUARIO</h3>
-<form method="POST" autocomplete="off" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="username">Nombre de usuario</label>
-        {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="Ej: fernapaz" %}
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">Contraseña</label>
-        {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="contraseña" %}
-      </div>
+    #boton {
+      text-align: center;
+    }
+
+    form {
+      margin: 30px;
+    }
+
+    body .btn-primary {
+      background-color: #6d047bf5;
+      border-color: #6d047bf5;
+      color: #FFF;
+      border-radius: 20px !important;
+    }
+
+    body .btn-primary:hover,
+    body .btn-primary:focus {
+      border-color: #6d047bf5;
+      background-color: #6d047bf5;
+      color: #FFF;
+      border-radius: 20px !important;
+    }
+
+    body .btn-primary:active,
+    body .btn-primary:visited,
+    body .btn-primary:active:focus,
+    body .btn-primary:active:hover {
+      border-color: #6d047bf5;
+      background-color: #6d047bf5;
+      color: #FFF;
+      border-radius: 20px !important;
+    }
+
+    .form-group {
+      color: rgb(68, 0, 124);
+      ;
+      font-size: 17px;
+      font-family: "Poppins", sans-serif !important;
+
+    }
+
+    .divi {
+      background: #00F260;
+      background: linear-gradient(#6d047bf5, #ffffff);
+
+    }
+
+    #id_first_name,
+    #id_last_name,
+    #id_mobile,
+    #id_address,
+    #id_username,
+    #id_password,
+    #id_profile_pic {
+      border-radius: 20px;
+      border-color: rgb(68, 0, 124);
+      border-width: 1px;
+    }
+
+    .box {
+      display: block;
+      padding: 40px;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      background: #ffffff;
+      opacity: 70%;
+      border-radius: 20px;
+      box-shadow: black 5px 5px;
+      font-family: "Poppins", sans-serif !important;
+    }
+
+    h1 {
+      font-family: "Poppins", sans-serif !important;
+    }
+  </style>
+</head>
+{% include "quiz/navbar.html" %}
+
+<body>
+  <div class="divi">
+    <br><br><br>
+    <div class="box">
+      <h1 style="text-align: center;color:  rgb(68, 0, 124); font-size: 180%; " class="font-weight-bold lead">CREA TU
+        CUENTA</h1>
+      <hr style="color: #000 !important;">
+      <form method="POST" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="username">Nombre de usuario</label>
+            {% render_field userForm.username|attr:'required:true' class="form-control" placeholder="Ej: fernapaz" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Contraseña</label>
+            {% render_field userForm.password|attr:'required:true' class="form-control" placeholder="contraseña" %}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="first_name">Nombre/s</label>
+            {% render_field userForm.first_name|attr:'required:true' class="form-control" placeholder="Ej: Fernando" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="last_name">Apellido</label>
+            {% render_field userForm.last_name|attr:'required:true' class="form-control" placeholder="Ej: Paz" %}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="mobile">Teléfono</label>
+            {% render_field studentForm.mobile|attr:'required:true' class="form-control" placeholder="Ej: +54 9 3731
+            641678" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="address">Dirección</label>
+            {% render_field studentForm.address|attr:'required:true' class="form-control" placeholder="Ej: Argentina,
+            Chaco" %}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="profile_pic">Foto de perfil</label>
+            {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+          </div>
+
+        </div>
+
+        <br>
+        <div id="boton">
+          <button type="submit" class="btn btn-primary">Registrarse</button>
+        </div>
+      </form>
     </div>
+    <br><br>
+  </div>
+</body>
 
-    <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="first_name">Nombre/s</label>
-          {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="Ej: Fernando" %}
-        </div>
-        <div class="form-group col-md-6">
-          <label for="last_name">Apellido</label>
-          {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Ej: Paz" %}
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="mobile">Teléfono</label>
-          {% render_field studentForm.mobile class="form-control" placeholder="Ej: +54 9 3731 641678" %}
-        </div>
-        <div class="form-group col-md-6">
-          <label for="address">Dirección</label>
-          {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Ej: Argentina, Chaco" %}
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label for="profile_pic">Foto de perfil</label>
-          {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
-        </div>
-        
-      </div>
-
-
-    <button type="submit" class="btn btn-primary" id="button-registro">Registrarse</button>
-  </form>
-
-
-<br><br>
-{% include "quiz/footer.html" %}
-  </body>
 </html>

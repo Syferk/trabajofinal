@@ -1,112 +1,122 @@
 <!DOCTYPE html>
+{% load widget_tweaks %} 
 {% load static %}
-{% load widget_tweaks %}
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+    crossorigin="anonymous"
+  />
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"
+  ></script>
+    <meta charset="utf-8" />
+    <title>Login</title>
     <style media="screen">
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+      .box {
+        width: 50% ;
+        padding: 40px;
+        margin-left: auto;
+        margin-right:auto;
+        margin-top: 10%;
+        background: #ffffff;
+        opacity: 80%;
+        border-radius: 20px;
+        text-align: center;
+        transition: 0.25s;
+        border-style: double;
+        border-color: rgb(255, 255, 255);
+        box-shadow: 10px 5px 5px rgb(0, 0, 0);
+      }
+
+      .box input[type="text"],
+      .box input[type="password"] {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid rgb(68, 0, 124);
+        padding: 10px 10px;
+        width: 50%;
+        outline: none;
+        color: rgb(0, 0, 0);
+        border-radius: 24px;
+        transition: 0.25s;
+        margin-left: auto;
+        margin-right:auto;
+      }
+
+      .box h1 {
+        color: rgb(68, 0, 124);
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      .box input[type="text"]:focus,
+      .box input[type="password"]:focus {
+        width: 60%;
+        border-color: rgb(68, 0, 124);
+        margin-left: auto;
+        margin-right:auto;
+      }
+
+      .box input[type="submit"] {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid rgb(68, 0, 124);
+        padding: 14px 40px;
+        outline: none;
+        color: rgb(68, 0, 124);
+        border-radius: 24px;
+        transition: 0.18s;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right:auto;
+        width: 40%;
+      }
+
+      .box input[type="submit"]:hover {
+        background: #9b9b9b;
+      }
+
       body {
-        background-image: url('https://discord.com/channels/872476522567598170/872476522567598175/880286513110351953') no-repeat center center;
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background: linear-gradient(85deg, #000, #ffffff)
-}
-/* #divi {
-    
-} */
-
-.box {
-    width: 500px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 57%;
-    background: #191919;
-    opacity: 80%;
-
-    text-align: center;
-    transition: 0.25s;
-    margin-top: 100px
-}
-
-.box input[type="text"],
-.box input[type="password"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #FFF;
-    padding: 10px 10px;
-    width: 250px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s
-}
-
-.box h1 {
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500
-}
-
-.box input[type="text"]:focus,
-.box input[type="password"]:focus {
-    width: 300px;
-    border-color: #FFF
-}
-
-.box input[type="submit"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #FFF;
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.18s;
-    cursor: pointer
-}
-
-.box input[type="submit"]:hover {
-    background: #9b9b9b 
-}
-
-
+        background: #00f260;
+        background: linear-gradient(#6d047bf5, #ffffff);
+      }
     </style>
   </head>
   <body>
-    <div id="divi">
-
-   
     {% include "quiz/navbar.html" %}
     <div class="container">
-    <div class="row">
+      <!-- <div class="row">
         <div class="col-md-6">
-            <div class="card">
-                <form class="box" method="post">
-                    {% csrf_token %}
-                    <h1>Login</h1>
-                    <p class="text-muted"> Por favor, ingrese su nombre de usuario y contraseña!</p>
-
-                     {% render_field form.username class="form-control" placeholder="Nombre de Usuario" %}
-                     {% render_field form.password class="form-control" placeholder="Contraseña" %}
-
-                     <input type="submit" name="" value="Iniciar sesión">
-
-                </form>
-            </div>
-        </div>
+          -->
+            <form class="box" method="post">
+              {% csrf_token %}
+              <h1>Yunou</h1>
+              <hr />
+              {% render_field form.username class="form-control" placeholder="Nombre de Usuario" %} 
+              {% render_field form.password class="form-control" placeholder="Contraseña" %}
+              <input type="submit" name="" value="Iniciar sesión" />
+              <p class="text-muted">
+                ¿No tienes una cuenta? Regístrate
+                <a href="/user/usersignup">aquí</a>
+              </p>
+            </form>
+          
+        <!-- </div>
+      </div> -->
     </div>
-</div>
-</div>
-
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br />
   </body>
-  
 </html>

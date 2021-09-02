@@ -18,21 +18,34 @@
       .row {
         margin: 100px;
       }
-      #panel2{
-        background: #2f323a;
-      }
-      #panel{
-        border-color: #2f323a;
-      }
-
+      .panel-heading {
+      background-color: #6d047bf5;
+      color: white;
+    }
+    .panel{
+      border: 1px #6d047bf5;
+    }
+    .home-section {
+      background: #00f260;
+      background: linear-gradient(#6d047bf5, #ffffff);
+    }
       th, tr {
         text-align: center;
       }
+      @media screen and (max-width: 320px) {
+     table {
+       display: block;
+       overflow-x: auto;
+     }
+} 
+.panel-title{
+  font-family:  "Poppins", sans-serif !important;
+}
     </style>
   
 </head>
     <div class="container">
-        <div class="panel panel-primary">
+        <div class="panel">
           <div class="panel-heading">
             <h6 class="panel-title">Ranking</h6>
           </div>

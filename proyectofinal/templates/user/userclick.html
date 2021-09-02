@@ -10,17 +10,30 @@
     .jumbotron {
       margin-top: 0px;
       margin-bottom: 0px;
+      text-align: center;
+      background: #00F260;
+      background: linear-gradient(#6d047bf5, #ffffff);
     }
 
-    .jumbotron h1 {
-      text-align: center;
+    p {
+      color: white;
+      text-shadow: black 2px 0px;
     }
-    #button{
-      background: #191919;
-      border:0;
+
+    h1 {
+      color: white;
+    }
+
+    #button {
+      box-shadow: white 2px 5px;
+      opacity: 70%;
+      border-radius: 20px;
+      background: #6d047bf5;
+      border: white 2px 2px;
+      color: white;
     }
   </style>
-  
+
 </head>
 
 <body>
@@ -28,17 +41,17 @@
   {% include "quiz/navbar.html" %}
   <br><br>
   <div class="jumbotron" style="margin-bottom:0px;">
-    <h1 class="display-4">Hola,</h1>
-    <p class="lead">Bienvenido a Yunou</p>
+    <h1 class="lead display-4"><b>YUNOU</b></h1>
     <hr class="my-4">
     <p>Accederás a las funciones después de iniciar sesión.</p>
+    <br> <br> <br>
     <p class="lead">
-      <a class="btn btn-primary btn-lg" href="usersignup" role="button" id="button">Crea tu cuenta</a>
-      <a class="btn btn-primary btn-lg" href="userlogin" role="button" id="button">Inicia sesión</a>
+      <a class="btn  btn-lg" href="usersignup" role="button" id="button">Crea tu cuenta</a> &nbsp;
+      <a class="btn btn-lg" href="userlogin" role="button" id="button">Inicia sesión</a>
     </p>
-    <br><br><br><br><br><br>
+    <br><br><br>
   </div>
- 
+
   {% include "quiz/footer.html" %}
 </body>
 

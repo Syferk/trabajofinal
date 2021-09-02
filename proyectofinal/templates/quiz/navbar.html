@@ -9,6 +9,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
   <style type="text/css">
     .bs-example {
@@ -16,13 +18,27 @@
 
     }
     .bg-dark {
-    background-color: #212529!important;
+    background-color: #6d047bf5!important;
 }
     .navbar-brand {
       font-size: 20px;
       font-family: sans-serif;
 
     }
+    img{
+      width: 40px; height: 40px;
+    }
+    .navbar, .navbar-dark{
+      background-color:#6d047bf5;
+    }
+ .btn{
+   color: white;
+  }
+  .btn:hover{
+   color: rgb(192, 115, 223);
+   background-color: white;
+   opacity: 70%;
+  }
   </style>
 </head>
 
@@ -31,32 +47,17 @@
 
 
   <div class="bs-example">
-    <nav class="navbar navbar-expand-md  navbar-dark fixed-top" style="background-color: #000000;">
-    <a style="color: #ffffff;text-decoration: none; " href="/"><font face = "Comic sans MS" size =" 5">Yunou</font><br /></a>  
+    <nav class="navbar navbar-expand-md  navbar-dark fixed-top" >
+    <img src="{% static "image/logo.png" %}" alt="profileImg">
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav">
-          <a style="padding-left: 30px;" href="/" class="nav-item nav-link">Inicio</a>
-
-          
-          <!--<a href="/adminclick" class="nav-item nav-link">Admin</a> -->
-          <a href="/aboutus" class="nav-item nav-link">Acerca de nosotros</a>
-          <a href="/contactus" class="nav-item nav-link">Contáctanos</a>
-
-        </div>
-
         
-        <div class="navbar-nav">
-          <a href="/student/studentclick" class="nav-item nav-link">Inicia sesión</a>
-          
-          
-          
+          <a class="btn btn-lg" href="/" role="button"> &#129184; Inicio</a>
         </div>
-
-
 
       </div>
     </nav>
