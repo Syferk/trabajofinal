@@ -206,7 +206,7 @@
       width: 260px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-around;
       background: #6d047bf5;
       padding: 12px 0;
       transition: all 0.5s ease;
@@ -242,7 +242,6 @@
       width: 52px;
       object-fit: cover;
       border-radius: 16px;
-      margin: 0 14px 0 12px;
       background: #6d047bf5;
       transition: all 0.5s ease;
     }
@@ -250,6 +249,7 @@
     .sidebar.close .profile-details img,
     .sidebar.close .logo-details img {
       padding: 10px;
+       margin: 0 14px 0 12px;
     }
 
     .sidebar .profile-details .profile_name,
@@ -311,7 +311,6 @@
         display: none;
       }
     }
-
     .menu-fixed {
       position: fixed;
       z-index: 1000;
@@ -319,12 +318,12 @@
       max-width: 60px;
       width: 100%;
     }
+    .iconos, i .bx .bx-cog, i .bx .bx-log-out{
+    height: 30px !important;
+       min-width: 10px !important;
+       
+    }
   </style>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
   <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -397,17 +396,6 @@
       </li>
 
       <li>
-        <a href="/user/edit-profile">
-          <i class='bx bx-user' ></i>
-          <span class="link_name">Editar usuario</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/user/edit-profile">Editar usuario</a></li>
-        </ul>
-      </li>
-
-      <li></li>
-      <li>
         <div class="profile-details">
           <div class="profile-content" style="width: 50px;">
             <img src="{% static 'image/admin.png' %}" alt="profileImg">
@@ -416,7 +404,13 @@
             <div class="profile_name">{{request.user.first_name}}</div>
             <div class="job">(Usuario)</div>
           </div>
-          <a href="/logout" class="logout_btn"><i class="bx bx-log-out"></i></a>
+          <a href="/user/edit-profile">
+            <span > <i class="bx bx-cog iconos"></i> 
+           </a></span> 
+ 
+             <a href="/logout" class="logout_btn" 
+             ><span ><i class="bx bx-log-out iconos"></i
+             ></a></span>
         </div>
       </li>
     </ul>

@@ -7,12 +7,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
   <style type="text/css">
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     .bs-example {
       margin: 0px;
 
@@ -32,12 +31,19 @@
       background-color:#6d047bf5;
     }
  .btn{
-   color: white;
+  color: rgb(162, 97, 175);
+   background-color: #6d047bf5;
+  border-radius: 40px;
+  font-family: 'Poppins', sans-serif;
+  border: rgb(162, 97, 175) 1px solid;
+ 
   }
   .btn:hover{
-   color: rgb(192, 115, 223);
+   color: rgb(68, 9, 80);
    background-color: white;
    opacity: 70%;
+   border-radius: 40px;
+   font-family: 'Poppins', sans-serif;
   }
   </style>
 </head>
@@ -48,21 +54,18 @@
 
   <div class="bs-example">
     <nav class="navbar navbar-expand-md  navbar-dark fixed-top" >
-    <img src="{% static "image/logo.png" %}" alt="profileImg">
+    <span style="margin-right: 15px;"><img src="{% static "image/logo.png" %}" alt="profileImg"></span>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav">
         
-          <a class="btn btn-lg" href="/" role="button"> &#129184; Inicio</a>
+          <a class="btn" href="/" role="button"> &#129184; Ir al inicio</a>
         </div>
 
       </div>
     </nav>
   </div>
-
 
 </body>
 
