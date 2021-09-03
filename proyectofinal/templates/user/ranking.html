@@ -59,12 +59,14 @@
     <table class="table table-hover" id="dev-table">
       <thead>
         <tr>
+          <th>Posición</th> 
           <th>Usuario</th>
           <th>Puntaje total</th>
         </tr>
       </thead>
       {% for l in lista %}
       <tr>
+        <td>{{ forloop.counter }}</td>
         {% for key, value in l.items %}
         <td>{{value}}</td>
         {% endfor %}
