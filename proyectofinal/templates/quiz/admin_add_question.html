@@ -1,11 +1,13 @@
 {% extends 'quiz/adminbase.html' %}
 {% load widget_tweaks %}
 {% block content %}
+{%load static%}
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <title>Añadir pregunta</title>
+  <link rel="shortcut icon" href="{% static '/image/log.png' %}" type="image/ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-
 input[type=text], select,input[type=number] ,input[type=password], textarea{
     width: 100%;
     padding: 12px 20px;

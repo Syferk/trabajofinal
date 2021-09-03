@@ -1,10 +1,12 @@
 {% extends 'quiz/adminbase.html' %}
 {% load widget_tweaks %}
 {% block content %}
+{%load static%}
+
 <head>
-  
+  <title>Añadir categoría</title>
+  <link rel="shortcut icon" href="{% static '/image/log.png' %}" type="image/ico">
     <style>
-  
     input[type=text], select,input[type=number], textarea{
     width: 100%;
     padding: 12px 20px;
